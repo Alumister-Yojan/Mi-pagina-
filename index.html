@@ -1,322 +1,441 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alumister-Yojansel - Aluminio & Vidrio Arquitectónico</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            dark: '#0f172a',
-                            slate: '#334155',
-                            silver: '#94a3b8',
-                            light: '#f8fafc',
-                            blue: '#2563eb',
-                            accent: '#0284c7',
-                            whatsapp: '#25D366'
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
-    <style>
-        .gradient-bg {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
-        }
-        .glass-card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YOJAN ALU | Carpintería de Aluminio & Cristalería</title>
+  
+  <!-- ======================================================= -->
+  <!-- ESTILOS (CSS) -->
+  <!-- ======================================================= -->
+  <style>
+    /* Estilos Generales */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: #fcfcfc;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Encabezado Principal */
+    header {
+      background-color: #1a1a1a;
+      color: #ffffff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      letter-spacing: 1px;
+      margin-bottom: 5px;
+    }
+
+    header p {
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
+    /* Sección de Galería */
+    .galeria-section {
+      padding: 50px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .titulo-seccion {
+      font-size: 2rem;
+      color: #1a1a1a;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+    }
+
+    .subtitulo-seccion {
+      color: #666;
+      margin-bottom: 30px;
+    }
+
+    /* Botones de Filtro */
+    .filtros-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 35px;
+    }
+
+    .btn-filtro {
+      background-color: #eee;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 25px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      color: #444;
+    }
+
+    .btn-filtro:hover, .btn-filtro.active {
+      background-color: #1a1a1a;
+      color: #ffffff;
+    }
+
+    /* Grid de Fotos */
+    .galeria-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .galeria-item {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+
+    .galeria-item.oculto {
+      display: none !important;
+    }
+
+    .galeria-item:hover {
+      transform: translateY(-5px);
+    }
+
+    .img-wrapper {
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      aspect-ratio: 4/3;
+    }
+
+    .img-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .galeria-item:hover .img-wrapper img {
+      transform: scale(1.08);
+    }
+
+    /* Overlay al pasar el cursor */
+    .overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .overlay span {
+      color: #fff;
+      border: 1px solid #fff;
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .galeria-item:hover .overlay {
+      opacity: 1;
+    }
+
+    .item-info {
+      padding: 12px;
+      text-align: left;
+    }
+
+    .item-info h4 {
+      font-size: 1rem;
+      color: #222;
+    }
+
+    /* Visor Modal (Lightbox Pantalla Completa) */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      padding-top: 50px;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.9);
+    }
+
+    .lightbox-contenido {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 85vh;
+      border-radius: 8px;
+    }
+
+    .cerrar-lightbox {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: #fff;
+      font-size: 35px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    /* Sección de Vídeos */
+    .videos-section {
+      padding: 60px 20px;
+      background-color: #f4f5f7;
+      border-top: 1px solid #e5e5e5;
+      text-align: center;
+    }
+
+    .videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card-video {
+      background: #fff;
+      border-radius: 12px;
+      padding: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+    }
+
+    .card-video video {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+    }
+
+    .card-video p {
+      margin-top: 10px;
+      font-weight: 600;
+      color: #333;
+      font-size: 0.95rem;
+    }
+
+    /* Pie de página */
+    footer {
+      background-color: #111;
+      color: #888;
+      text-align: center;
+      padding: 25px 20px;
+      font-size: 0.9rem;
+    }
+  </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased leading-relaxed">
+<body>
 
-    <!-- Encabezado / Navegación -->
-    <header class="sticky top-0 z-40 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 text-white transition-all">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <!-- Logo -->
-                <div class="flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-                    <div class="w-10 h-10 bg-gradient-to-tr from-blue-600 to-cyan-400 rounded-xl flex items-center justify-center text-white shadow-lg">
-                        <i class="fa-solid font-bold text-xl fa-border-all"></i>
-                    </div>
-                    <div>
-                        <span class="text-xl font-extrabold tracking-wider bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">ALUMISTER</span>
-                        <span class="block text-[10px] text-cyan-400 font-medium tracking-widest uppercase">Puertas, Ventanas y Más</span>
-                    </div>
-                </div>
+  <!-- ENCABEZADO -->
+  <header>
+    <h1>YOJAN ALU & VIDRIO</h1>
+    <p>Carpintería de Aluminio, Ventanas, Puertas, Mamparas & Gabinetes a Medida</p>
+  </header>
 
-                <!-- Menú Escritorio -->
-                <nav class="hidden md:flex space-x-8 text-sm font-medium">
-                    <a href="#galeria" class="hover:text-cyan-400 transition-colors">Galería de Trabajos</a>
-                    <a href="#cotizador" class="hover:text-cyan-400 transition-colors">Cotizador Online</a>
-                    <a href="#modalidades" class="hover:text-cyan-400 transition-colors">Con/Sin Montura</a>
-                </nav>
+  <!-- ======================================================= -->
+  <!-- SECCIÓN 1: GALERÍA DE FOTOS PRIMERO (proyecto-1 a proyecto-82) -->
+  <!-- ======================================================= -->
+  <section id="galeria" class="galeria-section">
+    <h2 class="titulo-seccion">Galería de Proyectos</h2>
+    <p class="subtitulo-seccion">Filtra nuestros trabajos finalizados según lo que necesites.</p>
 
-                <!-- Botón Acción Directa -->
-                <div class="hidden sm:flex items-center space-x-3">
-                    <a href="#cotizador" class="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white font-semibold px-5 py-2.5 rounded-full shadow-md transition-all text-sm flex items-center gap-2">
-                        <i class="fa-solid fa-calculator"></i> Cotizar Ahora
-                    </a>
-                </div>
-            </div>
+    <!-- Botones de Filtro -->
+    <div class="filtros-container">
+      <button class="btn-filtro active" data-filter="todos">Todos</button>
+      <button class="btn-filtro" data-filter="ventanas">Ventanas</button>
+      <button class="btn-filtro" data-filter="puertas">Puertas</button>
+      <button class="btn-filtro" data-filter="mamparas">Mamparas</button>
+      <button class="btn-filtro" data-filter="gabinetes">Gabinetes & Despensas</button>
+      <button class="btn-filtro" data-filter="closets">Closets</button>
+    </div>
+
+    <!-- Rejilla con fotos del proyecto -->
+    <div class="galeria-grid">
+      
+      <div class="galeria-item ventanas">
+        <div class="img-wrapper">
+          <img src="proyecto-1.jpeg" alt="Proyecto 1">
+          <div class="overlay"><span>Ampliar Imagen</span></div>
         </div>
-    </header>
+        <div class="item-info"><h4>Ventana de Aluminio</h4></div>
+      </div>
 
-    <!-- Hero Section con Fondo de Imagen de Portada -->
-    <section class="relative bg-slate-900 text-white min-h-[550px] flex items-center overflow-hidden py-16 sm:py-24">
-        <div class="absolute inset-0 w-full h-full z-0">
-            <img src="Presentacion2.jpeg" alt="Aluminio & Vidrio Arquitectónico a Medida" class="w-full h-full object-cover" onerror="this.src='Presentacion..jpeg'">
-            <div class="absolute inset-0 bg-slate-950/65 bg-gradient-to-r from-slate-950/85 via-slate-900/60 to-transparent"></div>
+      <div class="galeria-item puertas">
+        <div class="img-wrapper">
+          <img src="proyecto-2.jpeg" alt="Proyecto 2">
+          <div class="overlay"><span>Ampliar Imagen</span></div>
         </div>
+        <div class="item-info"><h4>Puerta Moderna</h4></div>
+      </div>
 
-        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-            <div class="max-w-2xl">
-                <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold bg-cyan-500/20 text-cyan-300 border border-cyan-400/30 mb-6 backdrop-blur-sm">
-                    <i class="fa-solid fa-shield-halved"></i> Diseños Elegantes & Estructuras Duraderas
-                </span>
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight mb-6 text-white drop-shadow-md">
-                    Ingeniería & Diseño en Vidrio <br>
-                    <span class="bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-300 bg-clip-text text-transparent">A Tu Medida</span>
-                </h1>
-                <p class="text-slate-200 text-lg sm:text-xl leading-relaxed mb-8 drop-shadow">
-                    Especialistas en ventanas, gabinetes, despensas modernas, closets, mamparas para baños y puertas. Elige comprar con instalador profesional o solo fabricación.
-                </p>
-                <div class="flex flex-col sm:flex-row items-start gap-4">
-                    <a href="https://wa.me/18099442504?text=Hola,%20quisiera%20solicitar%20una%20cotización" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-8 py-4 rounded-full shadow-lg transition-all flex items-center justify-center gap-3 text-base">
-                        <i class="fa-brands fa-whatsapp text-2xl"></i> Cotizar por WhatsApp
-                    </a>
-                </div>
-            </div>
+      <div class="galeria-item mamparas">
+        <div class="img-wrapper">
+          <img src="proyecto-3.jpeg" alt="Proyecto 3">
+          <div class="overlay"><span>Ampliar Imagen</span></div>
         </div>
-    </section>
+        <div class="item-info"><h4>Mampara de Baño</h4></div>
+      </div>
 
-    <!-- Modalidades: Con vs Sin Montura -->
-    <section id="modalidades" class="py-14 bg-gradient-to-b from-slate-100 to-slate-50 border-y border-slate-200">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-10">
-                <span class="text-xs font-extrabold uppercase tracking-widest text-blue-600 bg-blue-100 px-3 py-1 rounded-full">Modalidades de Trabajo</span>
-                <h2 class="text-3xl font-extrabold text-slate-900 mt-3">¿Cómo prefieres tu proyecto?</h2>
-                <p class="text-slate-600 text-sm mt-2">Nos adaptamos a tu presupuesto y necesidades. Elige la opción ideal para ti.</p>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-                <!-- Con Montura -->
-                <div class="relative bg-white p-8 rounded-3xl shadow-md border-2 border-blue-500 flex flex-col justify-between hover:shadow-xl transition-all">
-                    <span class="absolute -top-3.5 right-6 bg-blue-600 text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">
-                        ⭐ Servicio Completo
-                    </span>
-                    <div>
-                        <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-2xl font-bold mb-5">
-                            <i class="fa-solid fa-screwdriver-wrench"></i>
-                        </div>
-                        <h3 class="font-bold text-slate-900 text-2xl mb-2">Con Montura (Llave en Mano)</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                            Nos encargamos de absolutamente todo para que no tengas que preocuparte por nada.
-                        </p>
-                        <ul class="space-y-2.5 text-sm text-slate-700 mb-6">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-blue-600"></i> Medición técnica en tu residencia u obra</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-blue-600"></i> Fabricación con materiales premium</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-blue-600"></i> Transporte e instalación profesional garantizada</li>
-                        </ul>
-                    </div>
-                    <a href="https://wa.me/18099442504?text=Hola,%20me%20interesa%20un%20trabajo%20CON%20MONTURA" target="_blank" class="w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition-colors text-sm shadow-md block">
-                        Solicitar con Instalación
-                    </a>
-                </div>
-
-                <!-- Sin Montura -->
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 flex flex-col justify-between hover:shadow-xl transition-all">
-                    <div>
-                        <div class="w-14 h-14 bg-slate-100 text-slate-700 rounded-2xl flex items-center justify-center text-2xl font-bold mb-5">
-                            <i class="fa-solid fa-boxes-packing"></i>
-                        </div>
-                        <h3 class="font-bold text-slate-900 text-2xl mb-2">Sin Montura (Solo Fabricación)</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
-                            Ideal para maestros constructores, ingenieros o clientes con su propio instalador.
-                        </p>
-                        <ul class="space-y-2.5 text-sm text-slate-700 mb-6">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-slate-500"></i> Fabricación exacta según tus medidas</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-slate-500"></i> Ahorras costo de mano de obra e instalación</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-slate-500"></i> Producto empacado y listo para retirar o enviar</li>
-                        </ul>
-                    </div>
-                    <a href="https://wa.me/18099442504?text=Hola,%20me%20interesa%20un%20trabajo%20SIN%20MONTURA" target="_blank" class="w-full text-center bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 rounded-xl transition-colors text-sm shadow-md block">
-                        Pedir Solo Fabricación
-                    </a>
-                </div>
-            </div>
+      <div class="galeria-item gabinetes">
+        <div class="img-wrapper">
+          <img src="proyecto-4.jpeg" alt="Proyecto 4">
+          <div class="overlay"><span>Ampliar Imagen</span></div>
         </div>
-    </section>
+        <div class="item-info"><h4>Gabinete / Despensa</h4></div>
+      </div>
 
-    <!-- Galería con Precios Reales -->
-    <section id="galeria" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto mb-10">
-            <h2 class="text-3xl font-extrabold text-slate-900 sm:text-4xl">Galería y Precios Estimados</h2>
-            <p class="text-slate-600 mt-2">Nuestros modelos más solicitados con precios de referencia.</p>
+      <div class="galeria-item closets">
+        <div class="img-wrapper">
+          <img src="proyecto-5.jpeg" alt="Proyecto 5">
+          <div class="overlay"><span>Ampliar Imagen</span></div>
         </div>
+        <div class="item-info"><h4>Closet en Aluminio</h4></div>
+      </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Producto 1: Ventanas -->
-            <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col justify-between">
-                <div>
-                    <img src="ventanas-yojansel.jpg" alt="Ventanas" class="w-full h-60 object-cover" onerror="this.src='proyecto-1.jpeg'">
-                    <div class="p-6">
-                        <h3 class="font-bold text-slate-900 text-xl">Ventanas</h3>
-                        <p class="text-slate-600 text-sm mt-2">Diseños P-92 y P-40 con marcos de aluminio plateado, vidrios tintados, texturizados y cristales azules de diseño. Instalación profesional con durabilidad garantizada.</p>
-                    </div>
-                </div>
-                <div class="p-6 pt-0">
-                    <p class="text-lg font-bold text-blue-600 mb-4">Desde $12,000 DOP por metro lineal</p>
-                    <a href="https://wa.me/18099442504?text=Hola,%20me%20interesa%20cotizar%20Ventanas" target="_blank" class="block text-center bg-blue-50 hover:bg-blue-100 text-blue-600 font-semibold py-2.5 px-4 rounded-lg text-sm transition-colors">
-                        Cotizar por WhatsApp
-                    </a>
-                </div>
-            </div>
-
-            <!-- Producto 2: Gabinetes -->
-            <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col justify-between">
-                <div>
-                    <img src="gabinetes-yojansel.jpg" alt="Gabinetes" class="w-full h-60 object-cover" onerror="this.src='proyecto-2.jpeg'">
-                    <div class="p-6">
-                        <h3 class="font-bold text-slate-900 text-xl">Gabinetes</h3>
-                        <p class="text-slate-600 text-sm mt-2">Diseño moderno L-shape con paneles de cristal azul texturizado, herrajes de acero y cajones extraíbles de alta calidad. Incluye espacio funcional bajo fregadero.</p>
-                    </div>
-                </div>
-                <div class="p-6 pt-0">
-                    <p class="text-lg font-bold text-blue-600 mb-4">Desde $15,000 DOP por metro lineal</p>
-                    <a href="https://wa.me/18099442504?text=Hola,%20me%20interesa%20cotizar%20Gabinetes" target="_blank" class="block text-center bg-blue-50 hover:bg-blue-100 text-blue-600 font-semibold py-2.5 px-4 rounded-lg text-sm transition-colors">
-                        Cotizar por WhatsApp
-                    </a>
-                </div>
-            </div>
-
-            <!-- Producto 3: Despensa -->
-            <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col justify-between">
-                <div>
-                    <img src="Despensa.jpg" alt="Despensa" class="w-full h-60 object-cover" onerror="this.src='proyecto-3.jpeg'">
-                    <div class="p-6">
-                        <h3 class="font-bold text-slate-900 text-xl">Despensa</h3>
-                        <p class="text-slate-600 text-sm mt-2">Diseño elegante con acabados de alta durabilidad, compartimentos organizadores y cristales decorativos.</p>
-                    </div>
-                </div>
-                <div class="p-6 pt-0">
-                    <p class="text-lg font-bold text-blue-600 mb-4">Desde $8,500 DOP por pieza</p>
-                    <a href="https://wa.me/18099442504?text=Hola,%20me%20interesa%20cotizar%20Despensa" target="_blank" class="block text-center bg-blue-50 hover:bg-blue-100 text-blue-600 font-semibold py-2.5 px-4 rounded-lg text-sm transition-colors">
-                        Cotizar por WhatsApp
-                    </a>
-                </div>
-            </div>
-
-            <!-- Tarjeta: Puertas -->
-            <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col justify-between">
-                <div>
-                    <img src="puertas-yojansel.jpg" alt="Puertas Alumister-Yojansel" class="w-full h-60 object-cover" onerror="if(!this.dataset.retry){this.dataset.retry=1; this.src='puertas-yojansel.jpeg';} else if(this.dataset.retry==1){this.dataset.retry=2; this.src='puerta01.jpg';}">
-                    <div class="p-6">
-                        <h3 class="font-bold text-slate-900 text-xl">Puertas</h3>
-                        <p class="text-slate-600 text-sm mt-2">Fabricación de puertas residenciales, comerciales y de paso. Variedad en acabados, cerraduras de seguridad y cristales de alta resistencia.</p>
-                    </div>
-                </div>
-                <div class="p-6 pt-0">
-                    <p class="text-lg font-bold text-blue-600 mb-4">Desde RD$ 8,500</p>
-                    <a href="https://wa.me/18099442504?text=Hola,%20me%20interesa%20cotizar%20una%20Puerta" target="_blank" class="block text-center bg-blue-50 hover:bg-blue-100 text-blue-600 font-semibold py-2.5 px-4 rounded-lg text-sm transition-colors">
-                        Cotizar por WhatsApp
-                    </a>
-                </div>
-            </div>
-
-            <!-- Tarjeta: Clósets -->
-            <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col justify-between">
-                <div>
-                    <img src="closets-yojansel.jpg" alt="Clósets Alumister-Yojansel" class="w-full h-60 object-cover" onerror="this.src='closet 01.jpg'">
-                    <div class="p-6">
-                        <h3 class="font-bold text-slate-900 text-xl">Clósets</h3>
-                        <p class="text-slate-600 text-sm mt-2">Frentes e interiores de clóset a la medida. Estructuras resistentes a la humedad, puertas corredizas y acabados elegantes.</p>
-                    </div>
-                </div>
-                <div class="p-6 pt-0">
-                    <p class="text-lg font-bold text-blue-600 mb-4">Desde RD$ 15,000</p>
-                    <a href="https://wa.me/18099442504?text=Hola,%20me%20interesa%20cotizar%20un%20Cl%C3%B3set" target="_blank" class="block text-center bg-blue-50 hover:bg-blue-100 text-blue-600 font-semibold py-2.5 px-4 rounded-lg text-sm transition-colors">
-                        Cotizar por WhatsApp
-                    </a>
-                </div>
-            </div>
-
-            <!-- Tarjeta: Mamparas -->
-            <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col justify-between">
-                <div>
-                    <img src="mamparas-yojansel.jpg" alt="Mamparas de baño Alumister-Yojansel" class="w-full h-60 object-cover" onerror="if(!this.dataset.retry){this.dataset.retry=1; this.src='mamparas-yojansel.jpeg';} else if(this.dataset.retry==1){this.dataset.retry=2; this.src='mampara-yojansel.jpg';}">
-                    <div class="p-6">
-                        <h3 class="font-bold text-slate-900 text-xl">Mamparas</h3>
-                        <p class="text-slate-600 text-sm mt-2">Divisiones de baño en cristal templado, herrajes de acero inoxidable y sistemas corredizos o batientes para un acabado higiénico y moderno.</p>
-                    </div>
-                </div>
-                <div class="p-6 pt-0">
-                    <p class="text-lg font-bold text-blue-600 mb-4">Desde RD$ 12,500</p>
-                    <a href="https://wa.me/18099442504?text=Hola,%20me%20interesa%20cotizar%20una%20Mampara" target="_blank" class="block text-center bg-blue-50 hover:bg-blue-100 text-blue-600 font-semibold py-2.5 px-4 rounded-lg text-sm transition-colors">
-                        Cotizar por WhatsApp
-                    </a>
-                </div>
-            </div>
-
-            <!-- Portafolio Completo -->
-            <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col md:col-span-2 lg:col-span-3 bg-gradient-to-r from-cyan-50 via-slate-50 to-blue-50">
-                <div class="p-8 flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div class="flex-1">
-                        <span class="bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Portafolio Fotográfico</span>
-                        <h3 class="font-extrabold text-slate-900 text-2xl mt-2">Galería de 82 Proyectos Realizados</h3>
-                        <p class="text-slate-600 text-base mt-2">Mira con tus propios ojos la calidad de nuestras instalaciones terminadas de ventanas, gabinetes, closets, despensas y mamparas para baños.</p>
-                        <p class="text-sm font-semibold text-blue-600 mt-3">trabajos reales entregados a todos nuestros clientes.</p>
-                    </div>
-                    <div class="w-full md:w-auto flex flex-col sm:flex-row gap-3">
-                        <a href="galeria.html" class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 px-8 rounded-xl shadow-md transition-all text-base">
-                            Ver las 82 Fotos Aquí
-                        </a>
-                        <a href="https://wa.me/18099442504?text=Hola,%20me%20gustaría%20ver%20fotos%20de%20sus%20trabajos" target="_blank" class="block text-center bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3.5 px-6 rounded-xl shadow-md transition-all text-base">
-                            <i class="fa-brands fa-whatsapp text-lg"></i> Pedir por WhatsApp
-                        </a>
-                    </div>
-                </div>
-            </div>
+      <div class="galeria-item ventanas">
+        <div class="img-wrapper">
+          <img src="proyecto-6.jpeg" alt="Proyecto 6">
+          <div class="overlay"><span>Ampliar Imagen</span></div>
         </div>
-    </section>
+        <div class="item-info"><h4>Ventana Corrediza</h4></div>
+      </div>
 
-    <!-- Cotizador Rápido con Frase Personalizada -->
-    <section id="cotizador" class="py-16 bg-slate-900 text-white text-center">
-        <div class="max-w-3xl mx-auto px-4">
-            <span class="text-xs font-extrabold uppercase tracking-widest text-cyan-400 bg-cyan-950/80 px-3 py-1 rounded-full border border-cyan-800/50 mb-4 inline-block">
-                Diseño & Calidad Garantizada
-            </span>
-            <h2 class="text-3xl sm:text-4xl font-extrabold mb-4 leading-tight">
-                ¿Listo para transformar tu casa, apartamento o local al estilo más moderno y elegante?
-            </h2>
-            <p class="text-slate-300 text-base sm:text-lg mb-8 max-w-2xl mx-auto">
-                Escríbenos directamente por WhatsApp con tus medidas o ideas y te daremos tu presupuesto exacto al instante.
-            </p>
-            <a href="https://wa.me/18099442504?text=Hola,%20quiero%20transformar%20mi%20espacio%20al%20estilo%20moderno%20y%20elegante" target="_blank" class="inline-flex items-center gap-3 bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-lg hover:scale-105">
-                <i class="fa-brands fa-whatsapp text-2xl"></i> Hablar por WhatsApp
-            </a>
+      <div class="galeria-item puertas">
+        <div class="img-wrapper">
+          <img src="proyecto-7.jpeg" alt="Proyecto 7">
+          <div class="overlay"><span>Ampliar Imagen</span></div>
         </div>
-    </section>
+        <div class="item-info"><h4>Puerta de Entrada</h4></div>
+      </div>
 
-    <!-- Footer -->
-    <footer class="bg-slate-950 text-slate-400 py-8 text-center text-sm border-t border-slate-800">
-        <p>© 2026 Alumister-Yojansel - Carpintería de Aluminio & Vidrio Arquitectónico. Todos los derechos reservados.</p>
-    </footer>
+      <div class="galeria-item mamparas">
+        <div class="img-wrapper">
+          <img src="proyecto-8.jpeg" alt="Proyecto 8">
+          <div class="overlay"><span>Ampliar Imagen</span></div>
+        </div>
+        <div class="item-info"><h4>Mampara Cristal Templado</h4></div>
+      </div>
+
+      <!-- Puedes seguir añadiendo desde proyecto-9.jpeg hasta proyecto-82.jpeg cambiando la categoría en el class (ventanas, puertas, mamparas, etc.) -->
+
+    </div>
+  </section>
+
+  <!-- Visor modal a pantalla completa -->
+  <div id="lightbox" class="lightbox">
+    <span class="cerrar-lightbox">&times;</span>
+    <img class="lightbox-contenido" id="img-ampliada" alt="Vista previa amplia">
+  </div>
+
+
+  <!-- ======================================================= -->
+  <!-- SECCIÓN 2: VÍDEOS EN ACCIÓN DEBAJO DE LAS FOTOS -->
+  <!-- ======================================================= -->
+  <section id="videos" class="videos-section">
+    <h2 class="titulo-seccion">Vídeos Demostrativos</h2>
+    <p class="subtitulo-seccion">Observa los acabados, deslizamiento y calidad en movimiento.</p>
+
+    <div class="videos-grid">
+      
+      <div class="card-video">
+        <video controls preload="metadata">
+          <source src="video-1.mp4" type="video/mp4">
+        </video>
+        <p>Demostración 1</p>
+      </div>
+
+      <div class="card-video">
+        <video controls preload="metadata">
+          <source src="video-2.mp4" type="video/mp4">
+        </video>
+        <p>Demostración 2</p>
+      </div>
+
+      <div class="card-video">
+        <video controls preload="metadata">
+          <source src="video-3.mp4" type="video/mp4">
+        </video>
+        <p>Demostración 3</p>
+      </div>
+
+      <div class="card-video">
+        <video controls preload="metadata">
+          <source src="video-4.mp4" type="video/mp4">
+        </video>
+        <p>Demostración 4</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PIE DE PÁGINA -->
+  <footer>
+    <p>&copy; YOJAN ALU & VIDRIO - Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- ======================================================= -->
+  <!-- CÓDIGO INTERACTIVO (JAVASCRIPT) -->
+  <!-- ======================================================= -->
+  <script>
+    // 1. Filtrado por categorías
+    const botonesFiltro = document.querySelectorAll('.btn-filtro');
+    const itemsGaleria = document.querySelectorAll('.galeria-item');
+
+    botonesFiltro.forEach(boton => {
+      boton.addEventListener('click', () => {
+        botonesFiltro.forEach(btn => btn.classList.remove('active'));
+        boton.classList.add('active');
+
+        const categoria = boton.getAttribute('data-filter');
+
+        itemsGaleria.forEach(item => {
+          if (categoria === 'todos' || item.classList.contains(categoria)) {
+            item.classList.remove('oculto');
+          } else {
+            item.classList.add('oculto');
+          }
+        });
+      });
+    });
+
+    // 2. Visor a Pantalla Completa (Lightbox)
+    const lightbox = document.getElementById('lightbox');
+    const imgAmpliada = document.getElementById('img-ampliada');
+    const cerrarBtn = document.querySelector('.cerrar-lightbox');
+
+    document.querySelectorAll('.img-wrapper').forEach(wrapper => {
+      wrapper.addEventListener('click', () => {
+        const img = wrapper.querySelector('img');
+        lightbox.style.display = "block";
+        imgAmpliada.src = img.src;
+      });
+    });
+
+    cerrarBtn.addEventListener('click', () => {
+      lightbox.style.display = "none";
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target !== imgAmpliada) {
+        lightbox.style.display = "none";
+      }
+    });
+  </script>
 
 </body>
 </html>
