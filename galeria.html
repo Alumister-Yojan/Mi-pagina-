@@ -30,27 +30,32 @@
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 flex-1 w-full">
         
-        <!-- Cuadrícula Fotográfica (82 Proyectos con Filtros Interactivos) - PRIMERA SECCIÓN -->
+        <!-- Cuadrícula Fotográfica Automática con Filtros -->
         <section class="mb-16">
             <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 border-b border-slate-800 pb-4 gap-4">
                 <h2 class="text-2xl font-bold text-white flex items-center gap-2">
-                    <i class="fa-solid fa-images text-cyan-400"></i> Galería Fotográfica (82 Proyectos)
+                    <i class="fa-solid fa-images text-cyan-400"></i> Galería Fotográfica (Actualización Automática)
                 </h2>
                 
-                <!-- Botones de Filtro por Bloques de Proyectos -->
+                <!-- Botones de Filtro por Bloques -->
                 <div class="flex flex-wrap gap-2 text-xs">
-                    <button onclick="filtrarGaleria('todos')" id="btn-todos" class="px-3 py-1.5 rounded-lg bg-cyan-600 text-white font-semibold transition-colors">Todos (82)</button>
+                    <button onclick="filtrarGaleria('todos')" id="btn-todos" class="px-3 py-1.5 rounded-lg bg-cyan-600 text-white font-semibold transition-colors">Todos</button>
                     <button onclick="filtrarGaleria('bloque1')" id="btn-bloque1" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold transition-colors">Proyectos 1-30</button>
                     <button onclick="filtrarGaleria('bloque2')" id="btn-bloque2" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold transition-colors">Proyectos 31-60</button>
-                    <button onclick="filtrarGaleria('bloque3')" id="btn-bloque3" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold transition-colors">Proyectos 61-82</button>
+                    <button onclick="filtrarGaleria('bloque3')" id="btn-bloque3" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold transition-colors">Proyectos 61 en adelante</button>
                 </div>
             </div>
 
-            <!-- Contenedor donde se insertarán las fotos -->
-            <div id="galeria-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6"></div>
+            <!-- Contenedor dinámico donde se cargarán las fotos desde GitHub -->
+            <div id="galeria-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
+                <div class="col-span-full text-center py-16 text-slate-400">
+                    <i class="fa-solid fa-spinner fa-spin text-3xl text-cyan-400 mb-3"></i>
+                    <p class="text-sm">Cargando proyectos automáticamente...</p>
+                </div>
+            </div>
         </section>
 
-        <!-- Sección de 4 Videos de Demostración - SEGUNDA SECCIÓN -->
+        <!-- Sección de Videos de Demostración -->
         <section>
             <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-800 pb-3 flex items-center gap-2">
                 <i class="fa-solid fa-circle-play text-cyan-400"></i> Demostraciones en Video
@@ -117,46 +122,87 @@
 
     </main>
 
-    <!-- Script para generar las 82 fotos y los filtros -->
+    <!-- Script Inteligente con la API de GitHub -->
     <script>
-        const totalFotos = 82;
-        const container = document.getElementById('galeria-grid');
-        
-        for (let i = 1; i <= totalFotos; i++) {
-            let grupo = 'bloque3';
-            if (i <= 30) grupo = 'bloque1';
-            else if (i <= 60) grupo = 'bloque2';
+        async function cargarProyectosGitHub() {
+            const usuario = "Alumister-Yojan"; 
+            const repositorio = "Mi-pagina-"; 
+            
+            const url = `https://api.github.com/repos/${usuario}/${repositorio}/contents/`;
 
-            const card = document.createElement('div');
-            card.className = "proyecto-card bg-slate-800 rounded-xl overflow-hidden border border-slate-700 shadow-lg group hover:border-cyan-500/50 transition-all";
-            card.setAttribute('data-grupo', grupo);
+            try {
+                const response = await fetch(url);
+                const files = await response.json();
 
-            card.innerHTML = `
-                <div class="relative overflow-hidden aspect-square bg-slate-950">
-                    <img src="proyecto-${i}.jpeg" alt="Proyecto ${i} - Alumister-Yojansel" loading="lazy" 
-                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" 
-                         onerror="if(!this.dataset.retry){this.dataset.retry=true; this.src='proyecto-${i}.jpg';} else {this.parentElement.parentElement.style.display='none';}">
-                </div>
-                <div class="p-3 bg-slate-800/90 flex justify-between items-center text-xs text-slate-300">
-                    <span class="font-semibold text-slate-200">Proyecto #${i}</span>
-                    <a href="https://wa.me/18099442504?text=Hola,%20me%20interesa%20un%20trabajo%20como%20el%20del%20Proyecto%20%23${i}" target="_blank" class="text-cyan-400 hover:text-cyan-300 font-bold flex items-center gap-1">
-                        <i class="fa-brands fa-whatsapp text-sm"></i> Cotizar
-                    </a>
-                </div>
-            `;
-            container.appendChild(card);
+                const container = document.getElementById('galeria-grid');
+                container.innerHTML = ""; 
+
+                // Filtrar solo los archivos que empiecen por "proyecto-" y terminen en .jpeg o .jpg
+                let fotosProyectos = files.filter(file => 
+                    file.name.toLowerCase().startsWith('proyecto-') && 
+                    (file.name.toLowerCase().endsWith('.jpeg') || file.name.toLowerCase().endsWith('.jpg'))
+                );
+
+                // Ordenar numéricamente las fotos de menor a mayor
+                fotosProyectos.sort((a, b) => {
+                    const numA = parseInt(a.name.replace(/[^0-9]/g, '')) || 0;
+                    const numB = parseInt(b.name.replace(/[^0-9]/g, '')) || 0;
+                    return numA - numB;
+                });
+
+                if (fotosProyectos.length === 0) {
+                    container.innerHTML = `<p class="col-span-full text-center text-slate-400">No se encontraron proyectos en este momento.</p>`;
+                    return;
+                }
+
+                // Generar cada tarjeta de foto de forma automática
+                fotosProyectos.forEach((file, index) => {
+                    const numeroProyecto = index + 1;
+                    
+                    let grupo = 'bloque3';
+                    if (numeroProyecto <= 30) grupo = 'bloque1';
+                    else if (numeroProyecto <= 60) grupo = 'bloque2';
+
+                    const card = document.createElement('div');
+                    card.className = "proyecto-card bg-slate-800 rounded-xl overflow-hidden border border-slate-700 shadow-lg group hover:border-cyan-500/50 transition-all";
+                    card.setAttribute('data-grupo', grupo);
+
+                    card.innerHTML = `
+                        <div class="relative overflow-hidden aspect-square bg-slate-950">
+                            <img src="${file.name}" alt="Proyecto ${numeroProyecto} - Alumister-Yojansel" loading="lazy" 
+                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-3 bg-slate-800/90 flex justify-between items-center text-xs text-slate-300">
+                            <span class="font-semibold text-slate-200">Proyecto #${numeroProyecto}</span>
+                            <a href="https://wa.me/18099442504?text=Hola,%20me%20interesa%20un%20trabajo%20como%20el%20del%20Proyecto%20%23${numeroProyecto}" target="_blank" class="text-cyan-400 hover:text-cyan-300 font-bold flex items-center gap-1">
+                                <i class="fa-brands fa-whatsapp text-sm"></i> Cotizar
+                            </a>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+
+            } catch (error) {
+                console.error("Error al conectar con GitHub:", error);
+                document.getElementById('galeria-grid').innerHTML = `
+                    <p class="col-span-full text-center text-red-400">Hubo un error al cargar la galería automáticamente.</p>
+                `;
+            }
         }
 
+        // Sistema de filtros por bloques
         function filtrarGaleria(tipo) {
             const tarjetas = document.querySelectorAll('.proyecto-card');
             const botones = ['btn-todos', 'btn-bloque1', 'btn-bloque2', 'btn-bloque3'];
 
             botones.forEach(btnId => {
                 const b = document.getElementById(btnId);
-                if (btnId === 'btn-' + tipo) {
-                    b.className = "px-3 py-1.5 rounded-lg bg-cyan-600 text-white font-semibold transition-colors";
-                } else {
-                    b.className = "px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold transition-colors";
+                if (b) {
+                    if (btnId === 'btn-' + tipo) {
+                        b.className = "px-3 py-1.5 rounded-lg bg-cyan-600 text-white font-semibold transition-colors";
+                    } else {
+                        b.className = "px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold transition-colors";
+                    }
                 }
             });
 
@@ -168,6 +214,9 @@
                 }
             });
         }
+
+        // Iniciar la carga automática al abrir la página
+        cargarProyectosGitHub();
     </script>
 
     <!-- Pie de página -->
