@@ -62,9 +62,9 @@
             </h2>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Video 1 -->
+                <!-- Video 1 (Silenciado) -->
                 <div class="bg-slate-800 rounded-xl overflow-hidden border border-slate-700 p-3 shadow-lg flex flex-col justify-between">
-                    <video controls preload="metadata" class="w-full h-64 object-cover rounded-lg bg-black">
+                    <video controls muted preload="metadata" class="w-full h-64 object-cover rounded-lg bg-black">
                         <source src="video-1.mp4" type="video/mp4">
                         Tu navegador no soporta la reproducción de video.
                     </video>
@@ -76,9 +76,9 @@
                     </div>
                 </div>
 
-                <!-- Video 2 -->
+                <!-- Video 2 (Silenciado) -->
                 <div class="bg-slate-800 rounded-xl overflow-hidden border border-slate-700 p-3 shadow-lg flex flex-col justify-between">
-                    <video controls preload="metadata" class="w-full h-64 object-cover rounded-lg bg-black">
+                    <video controls muted preload="metadata" class="w-full h-64 object-cover rounded-lg bg-black">
                         <source src="video-2.mp4" type="video/mp4">
                         Tu navegador no soporta la reproducción de video.
                     </video>
@@ -90,9 +90,9 @@
                     </div>
                 </div>
 
-                <!-- Video 3 -->
+                <!-- Video 3 (Silenciado) -->
                 <div class="bg-slate-800 rounded-xl overflow-hidden border border-slate-700 p-3 shadow-lg flex flex-col justify-between">
-                    <video controls preload="metadata" class="w-full h-64 object-cover rounded-lg bg-black">
+                    <video controls muted preload="metadata" class="w-full h-64 object-cover rounded-lg bg-black">
                         <source src="video-3.mp4" type="video/mp4">
                         Tu navegador no soporta la reproducción de video.
                     </video>
@@ -104,7 +104,7 @@
                     </div>
                 </div>
 
-                <!-- Video 4 -->
+                <!-- Video 4 (Con Sonido) -->
                 <div class="bg-slate-800 rounded-xl overflow-hidden border border-slate-700 p-3 shadow-lg flex flex-col justify-between">
                     <video controls preload="metadata" class="w-full h-64 object-cover rounded-lg bg-black">
                         <source src="video-4.mp4" type="video/mp4">
@@ -137,13 +137,11 @@
                 const container = document.getElementById('galeria-grid');
                 container.innerHTML = ""; 
 
-                // Filtrar solo los archivos que empiecen por "proyecto-" y terminen en .jpeg o .jpg
                 let fotosProyectos = files.filter(file => 
                     file.name.toLowerCase().startsWith('proyecto-') && 
                     (file.name.toLowerCase().endsWith('.jpeg') || file.name.toLowerCase().endsWith('.jpg'))
                 );
 
-                // Ordenar numéricamente las fotos de menor a mayor
                 fotosProyectos.sort((a, b) => {
                     const numA = parseInt(a.name.replace(/[^0-9]/g, '')) || 0;
                     const numB = parseInt(b.name.replace(/[^0-9]/g, '')) || 0;
@@ -155,7 +153,6 @@
                     return;
                 }
 
-                // Generar cada tarjeta de foto de forma automática
                 fotosProyectos.forEach((file, index) => {
                     const numeroProyecto = index + 1;
                     
@@ -190,7 +187,6 @@
             }
         }
 
-        // Sistema de filtros por bloques
         function filtrarGaleria(tipo) {
             const tarjetas = document.querySelectorAll('.proyecto-card');
             const botones = ['btn-todos', 'btn-bloque1', 'btn-bloque2', 'btn-bloque3'];
@@ -215,7 +211,6 @@
             });
         }
 
-        // Iniciar la carga automática al abrir la página
         cargarProyectosGitHub();
     </script>
 
