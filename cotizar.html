@@ -38,12 +38,12 @@
                 <div>
                     <label class="block text-sm font-semibold text-slate-200 mb-2">1. Selecciona el Tipo de Producto:</label>
                     <select id="producto" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors">
-                        <option value="ventanas">Ventanas de Aluminio y Vidrio</option>
-                        <option value="gabinetes">Gabinetes Modernos de Cocina</option>
-                        <option value="closets">Clósets a la Medida</option>
-                        <option value="mamparas">Mamparas para Baño</option>
-                        <option value="puertas">Puertas de Aluminio</option>
-                        <option value="despensas">Despensas Modernas</option>
+                        <option value="ventanas">Ventanas</option>
+                        <option value="gabinetes">Gabinetes</option>
+                        <option value="closets">Clóset</option>
+                        <option value="mamparas">Mamparas</option>
+                        <option value="puertas">Puertas</option>
+                        <option value="despensas">Despensas</option>
                     </select>
                 </div>
 
@@ -71,12 +71,12 @@
                 </div>
 
                 <!-- Botón de Cálculo -->
-                <button type="button" onclick="calcularCotizacion()" class="w-full bg-cyan-500 hover:bg-cyan-600 text-slate-950 font-extrabold py-3.5 rounded-xl transition-all shadow-lg flex justify-center items-center gap-2 text-base">
+                <button type="button" onclick="calcularCotizacion()" class="w-full bg-cyan-500 hover:bg-cyan-600 text-slate-950 font-extrabold py-3.5 rounded-xl transition-all shadow-lg flex justify-center items-center gap-2 text-base cursor-pointer">
                     <i class="fa-solid fa-calculator"></i> Calcular Estimado
                 </button>
             </form>
 
-            <!-- Resultado del Cálculo (Oculto al inicio) -->
+            <!-- Resultado del Cálculo -->
             <div id="resultado-container" class="mt-8 pt-6 border-t border-slate-700 hidden text-center animate-fade-in">
                 <h3 class="text-slate-400 text-sm uppercase tracking-wider font-semibold">Estimado Aproximado:</h3>
                 <div id="precio-estimado" class="text-3xl sm:text-4xl font-black text-cyan-400 my-2">RD$ 0.00</div>
@@ -109,37 +109,30 @@
                 return;
             }
 
-            // Calcular pies cuadrados aproximados
             const piesCuadrados = ancho * alto;
 
-            // Precios base aproximados por pie cuadrado (puedes ajustarlos luego con calma)
-            let precioPorPie = 2500; // Precio base general
+            let precioPorPie = 2500;
             if (productoValor === 'gabinetes' || productoValor === 'closets' || productoValor === 'despensas') {
-                precioPorPie = 3200; // Muebles suelen llevar más detalle
+                precioPorPie = 3200;
             } else if (productoValor === 'mamparas') {
                 precioPorPie = 3000;
             }
 
             let subtotal = piesCuadrados * precioPorPie;
 
-            // Ajuste si incluye instalación
             let detalleInstalacion = "Con Fabricación e Instalación";
             if (instalacion === 'no') {
-                subtotal = subtotal * 0.85; // Descuento si es solo fabricación
+                subtotal = subtotal * 0.85;
                 detalleInstalacion = "Solo Fabricación (Sin instalación)";
             }
 
-            // Formatear precio en moneda dominicana
             const precioFormateado = new Intl.NumberFormat('es-DO', { style: 'currency', currency: 'DOP' }).format(subtotal);
 
-            // Mostrar el contenedor de resultados
             document.getElementById('resultado-container').classList.remove('hidden');
             document.getElementById('precio-estimado').innerText = precioFormateado;
 
-            // Crear el mensaje personalizado para WhatsApp
             const mensajeWpp = `Hola, Alumister-Yojansel. Me gustaría cotizar el siguiente proyecto:%0A%0A- *Producto:* ${productoNombre}%0A- *Dimensiones:* ${ancho} pies de ancho x ${alto} alto (${piesCuadrados.toFixed(1)} pies²)%0A- *Modalidad:* ${detalleInstalacion}%0A- *Estimado en web:* ${precioFormateado}%0A%0A¿Me podrían confirmar disponibilidad y visita para medir?`;
 
-            // Asignar el enlace al botón de WhatsApp
             const enlaceWpp = `https://wa.me/18099442504?text=${mensajeWpp}`;
             document.getElementById('btn-enviar-wpp').setAttribute('href', enlaceWpp);
         }
