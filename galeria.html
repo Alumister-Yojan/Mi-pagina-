@@ -187,10 +187,12 @@
                 const container = document.getElementById('galeria-grid');
                 container.innerHTML = ""; 
 
-                let fotosProyectos = files.filter(file => 
-                    file.name.toLowerCase().startsWith('proyecto-') && 
-                    (file.name.toLowerCase().endsWith('.jpeg') || file.name.toLowerCase().endsWith('.jpg'))
-                );
+                // Filtro actualizado para detectar .jpg, .jpeg y .png automáticamente
+                let fotosProyectos = files.filter(file => {
+                    const nombreLower = file.name.toLowerCase();
+                    return nombreLower.startsWith('proyecto-') && 
+                           (nombreLower.endsWith('.jpeg') || nombreLower.endsWith('.jpg') || nombreLower.endsWith('.png'));
+                });
 
                 fotosProyectos.sort((a, b) => {
                     const numA = parseInt(a.name.replace(/[^0-9]/g, '')) || 0;
@@ -219,4 +221,67 @@
                             <img src="${file.name}" alt="Proyecto ${numeroProyecto} - Alumister" loading="lazy" 
                                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         </div>
-                        <div class="p-3 bg-white flex justify-between items-center text-xs border-t border-slate-1
+                        <div class="p-3 bg-white flex justify-between items-center text-xs border-t border-slate-100">
+                            <span class="font-bold text-slate-800">Proyecto #${numeroProyecto}</span>
+                            <a href="https://wa.me/18099442504?text=Hola,%20me%20interesa%20un%20trabajo%20como%20el%20del%20Proyecto%20%23${numeroProyecto}" target="_blank" class="text-cyan-600 hover:text-cyan-700 font-bold flex items-center gap-1">
+                                <i class="fa-brands fa-whatsapp text-sm text-emerald-500"></i> Cotizar
+                            </a>
+                        </div>
+                    `;
+                    container.appendChild(card);
+                });
+
+            } catch (error) {
+                console.error("Error al conectar con GitHub:", error);
+                document.getElementById('galeria-grid').innerHTML = `
+                    <p class="col-span-full text-center text-red-500">Hubo un error al cargar la galería automáticamente.</p>
+                `;
+            }
+        }
+
+        function filtrarGaleria(tipo) {
+            const tarjetas = document.querySelectorAll('.proyecto-card');
+            const botones = ['btn-todos', 'btn-bloque1', 'btn-bloque2', 'btn-bloque3'];
+
+            botones.forEach(btnId => {
+                const b = document.getElementById(btnId);
+                if (b) {
+                    if (btnId === 'btn-' + tipo) {
+                        b.className = "px-3.5 py-2 rounded-xl bg-cyan-600 text-white font-semibold transition-all shadow-sm";
+                    } else {
+                        b.className = "px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-slate-700 hover:bg-slate-100 font-semibold transition-all shadow-sm";
+                    }
+                }
+            });
+
+            tarjetas.forEach(card => {
+                if (tipo === 'todos' || card.getAttribute('data-grupo') === tipo) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        cargarProyectosGitHub();
+    </script>
+
+    <!-- Pie de página -->
+    <footer class="bg-white border-t border-slate-200 py-8 text-center text-slate-500 text-sm mt-auto">
+        <p>© Alumister — Carpintería de Aluminio & Vidrio Arquitectónico</p>
+        <p class="mt-1">WhatsApp: <a href="https://wa.me/18099442504" class="text-cyan-600 font-semibold underline">809-944-2504</a></p>
+    </footer>
+
+    <!-- Botón Flotante de WhatsApp Permanente -->
+    <a href="https://wa.me/18099442504?text=Hola,%20me%20gustaría%20recibir%20más%20información%20sobre%20sus%20trabajos" 
+       target="_blank" 
+       class="fixed bottom-6 right-6 z-50 bg-emerald-500 hover:bg-emerald-600 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-3xl transition-all duration-300 hover:scale-110 group"
+       title="Escríbenos por WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+        <span class="absolute right-16 bg-slate-900 text-white text-xs font-semibold px-3 py-1.5 rounded-xl shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap border border-slate-700">
+            ¡Escríbenos aquí!
+        </span>
+    </a>
+
+</body>
+</html>
