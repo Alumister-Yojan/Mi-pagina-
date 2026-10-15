@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cotizador Automático | Alumister-Yojansel</title>
+    <title>Cotizador Automático | Alumister</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome Icons -->
@@ -154,7 +154,7 @@
             document.getElementById('resultado-container').classList.remove('hidden');
             document.getElementById('precio-estimado').innerText = precioFormateado;
 
-            const mensajeWpp = `Hola, Alumister-Yojansel. Me gustaría cotizar el siguiente proyecto:%0A%0A- *Producto:* ${productoNombre}%0A- *Dimensiones:* ${ancho} pies de ancho x ${alto} alto (${piesCuadrados.toFixed(1)} pies²)%0A- *Modalidad:* ${detalleInstalacion}%0A- *Estimado en web:* ${precioFormateado}%0A%0A¿Me podrían confirmar disponibilidad y visita para medir?`;
+            const mensajeWpp = `Hola, Alumister. Me gustaría cotizar el siguiente proyecto:%0A%0A- *Producto:* ${productoNombre}%0A- *Dimensiones:* ${ancho} pies de ancho x ${alto} alto (${piesCuadrados.toFixed(1)} pies²)%0A- *Modalidad:* ${detalleInstalacion}%0A- *Estimado en web:* ${precioFormateado}%0A%0A¿Me podrían confirmar disponibilidad y visita para medir?`;
 
             const enlaceWpp = `https://wa.me/18099442504?text=${mensajeWpp}`;
             document.getElementById('btn-enviar-wpp').setAttribute('href', enlaceWpp);
@@ -163,7 +163,7 @@
 
     <!-- Pie de página -->
     <footer class="bg-white border-t border-slate-200 py-8 text-center text-slate-500 text-sm mt-auto">
-        <p>© Alumister-Yojansel — Carpintería de Aluminio & Vidrio Arquitectónico</p>
+        <p>© Alumister — Carpintería de Aluminio & Vidrio Arquitectónico</p>
         <p class="mt-1">WhatsApp: <a href="https://wa.me/18099442504" class="text-cyan-600 font-semibold underline">809-944-2504</a></p>
     </footer>
 
