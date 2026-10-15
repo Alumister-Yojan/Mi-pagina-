@@ -24,91 +24,44 @@
     <!-- Encabezado de la Galería -->
     <header class="py-12 px-4 text-center max-w-4xl mx-auto">
         <span class="bg-cyan-500/20 text-cyan-300 border border-cyan-400/30 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Portafolio Multimedia</span>
-        <h1 class="text-3xl sm:text-5xl font-extrabold mt-4 text-white">Nuestros Proyectos en Video y Fotos</h1>
+        <h1 class="text-3xl sm:text-5xl font-extrabold mt-4 text-white">Nuestros Proyectos en Fotos y Video</h1>
         <p class="text-slate-400 text-base sm:text-lg mt-3">Calidad y precisión garantizadas para todos nuestros clientes en cada instalación de aluminio y vidrio.</p>
     </header>
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 flex-1 w-full">
         
-        <!-- Sección de 4 Videos de Demostración -->
-        <section class="mb-14">
-            <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-800 pb-3 flex items-center gap-2">
-                <i class="fa-solid fa-circle-play text-cyan-400"></i> Demostraciones en Video
-            </h2>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Video 1 -->
-                <div class="bg-slate-800 rounded-xl overflow-hidden border border-slate-700 p-3 shadow-lg flex flex-col justify-between">
-                    <video controls preload="metadata" class="w-full h-64 object-cover rounded-lg bg-black">
-                        <source src="video-1.mp4" type="video/mp4">
-                        Tu navegador no soporta la reproducción de video.
-                    </video>
-                    <div class="mt-3 flex justify-between items-center text-xs">
-                        <span class="font-semibold text-slate-200">Video #1</span>
-                        <a href="https://wa.me/18099442504?text=Hola,%20me%20interesa%20un%20trabajo%20como%20el%20del%20Video%20%231" target="_blank" class="text-cyan-400 hover:text-cyan-300 font-bold flex items-center gap-1">
-                            <i class="fa-brands fa-whatsapp"></i> Cotizar
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Video 2 -->
-                <div class="bg-slate-800 rounded-xl overflow-hidden border border-slate-700 p-3 shadow-lg flex flex-col justify-between">
-                    <video controls preload="metadata" class="w-full h-64 object-cover rounded-lg bg-black">
-                        <source src="video-2.mp4" type="video/mp4">
-                        Tu navegador no soporta la reproducción de video.
-                    </video>
-                    <div class="mt-3 flex justify-between items-center text-xs">
-                        <span class="font-semibold text-slate-200">Video #2</span>
-                        <a href="https://wa.me/18099442504?text=Hola,%20me%20interesa%20un%20trabajo%20como%20el%20del%20Video%20%232" target="_blank" class="text-cyan-400 hover:text-cyan-300 font-bold flex items-center gap-1">
-                            <i class="fa-brands fa-whatsapp"></i> Cotizar
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Video 3 -->
-                <div class="bg-slate-800 rounded-xl overflow-hidden border border-slate-700 p-3 shadow-lg flex flex-col justify-between">
-                    <video controls preload="metadata" class="w-full h-64 object-cover rounded-lg bg-black">
-                        <source src="video-3.mp4" type="video/mp4">
-                        Tu navegador no soporta la reproducción de video.
-                    </video>
-                    <div class="mt-3 flex justify-between items-center text-xs">
-                        <span class="font-semibold text-slate-200">Video #3</span>
-                        <a href="https://wa.me/18099442504?text=Hola,%20me%20interesa%20un%20trabajo%20como%20el%20del%20Video%20%233" target="_blank" class="text-cyan-400 hover:text-cyan-300 font-bold flex items-center gap-1">
-                            <i class="fa-brands fa-whatsapp"></i> Cotizar
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Video 4 -->
-                <div class="bg-slate-800 rounded-xl overflow-hidden border border-slate-700 p-3 shadow-lg flex flex-col justify-between">
-                    <video controls preload="metadata" class="w-full h-64 object-cover rounded-lg bg-black">
-                        <source src="video-4.mp4" type="video/mp4">
-                        Tu navegador no soporta la reproducción de video.
-                    </video>
-                    <div class="mt-3 flex justify-between items-center text-xs">
-                        <span class="font-semibold text-slate-200">Video #4</span>
-                        <a href="https://wa.me/18099442504?text=Hola,%20me%20interesa%20un%20trabajo%20como%20el%20del%20Video%20%234" target="_blank" class="text-cyan-400 hover:text-cyan-300 font-bold flex items-center gap-1">
-                            <i class="fa-brands fa-whatsapp"></i> Cotizar
-                        </a>
-                    </div>
+        <!-- Cuadrícula Fotográfica (82 Proyectos con Filtros Interactivos) - PRIMERA SECCIÓN -->
+        <section class="mb-16">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6 border-b border-slate-800 pb-4 gap-4">
+                <h2 class="text-2xl font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-images text-cyan-400"></i> Galería Fotográfica (82 Proyectos)
+                </h2>
+                
+                <!-- Botones de Filtro por Bloques de Proyectos -->
+                <div class="flex flex-wrap gap-2 text-xs">
+                    <button onclick="filtrarGaleria('todos')" id="btn-todos" class="px-3 py-1.5 rounded-lg bg-cyan-600 text-white font-semibold transition-colors">Todos (82)</button>
+                    <button onclick="filtrarGaleria('bloque1')" id="btn-bloque1" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold transition-colors">Proyectos 1-30</button>
+                    <button onclick="filtrarGaleria('bloque2')" id="btn-bloque2" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold transition-colors">Proyectos 31-60</button>
+                    <button onclick="filtrarGaleria('bloque3')" id="btn-bloque3" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 font-semibold transition-colors">Proyectos 61-82</button>
                 </div>
             </div>
-        </section>
 
-        <!-- Cuadrícula Fotográfica (82 Proyectos) -->
-        <section>
-            <h2 class="text-2xl font-bold text-white mb-6 border-b border-slate-800 pb-3 flex items-center gap-2">
-                <i class="fa-solid fa-images text-cyan-400"></i> Galería Fotográfica
-            </h2>
-            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
+            <div id="galeria-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 sm:gap-6">
                 
                 <script>
                     const totalFotos = 82;
-                    const container = document.currentScript.parentElement;
+                    const container = document.getElementById('galeria-grid');
                     
                     for (let i = 1; i <= totalFotos; i++) {
+                        // Asignar etiqueta de bloque para los filtros sin renombrar fotos
+                        let grupo = 'bloque3';
+                        if (i <= 30) grupo = 'bloque1';
+                        else if (i <= 60) grupo = 'bloque2';
+
                         const card = document.createElement('div');
-                        card.className = "bg-slate-800 rounded-xl overflow-hidden border border-slate-700 shadow-lg group hover:border-cyan-500/50 transition-all";
+                        card.className = "proyecto-card bg-slate-800 rounded-xl overflow-hidden border border-slate-700 shadow-lg group hover:border-cyan-500/50 transition-all";
+                        card.setAttribute('data-grupo', grupo);
+
                         card.innerHTML = `
                             <div class="relative overflow-hidden aspect-square bg-slate-950">
                                 <img src="proyecto-${i}.jpeg" alt="Proyecto ${i} - Alumister-Yojansel" loading="lazy" 
@@ -117,25 +70,4 @@
                             </div>
                             <div class="p-3 bg-slate-800/90 flex justify-between items-center text-xs text-slate-300">
                                 <span class="font-semibold text-slate-200">Proyecto #${i}</span>
-                                <a href="https://wa.me/18099442504?text=Hola,%20me%20interesa%20un%20trabajo%20como%20el%20del%20Proyecto%20%23${i}" target="_blank" class="text-cyan-400 hover:text-cyan-300 font-bold flex items-center gap-1">
-                                    <i class="fa-brands fa-whatsapp text-sm"></i> Cotizar
-                                </a>
-                            </div>
-                        `;
-                        container.appendChild(card);
-                    }
-                </script>
-
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Pie de página -->
-    <footer class="bg-slate-950 border-t border-slate-800 py-8 text-center text-slate-400 text-sm">
-        <p>© Alumister-Yojansel — Carpintería de Aluminio & Vidrio Arquitectónico</p>
-        <p class="mt-1">WhatsApp: <a href="https://wa.me/18099442504" class="text-cyan-400 underline">809-944-2504</a></p>
-    </footer>
-
-</body>
-</html>
+                                <a href="
