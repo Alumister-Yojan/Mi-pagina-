@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galería de Proyectos | Alumister-Yojansel</title>
+    <title>Galería de Proyectos | Alumister</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Font Awesome Icons -->
@@ -127,6 +127,7 @@
     <!-- Script Inteligente con la API de GitHub -->
     <script>
         async function cargarProyectosGitHub() {
+            // Se mantiene el usuario exacto de tu cuenta de GitHub para que la API funcione
             const usuario = "Alumister-Yojan"; 
             const repositorio = "Mi-pagina-"; 
             
@@ -168,7 +169,7 @@
 
                     card.innerHTML = `
                         <div class="relative overflow-hidden aspect-square bg-slate-100">
-                            <img src="${file.name}" alt="Proyecto ${numeroProyecto} - Alumister-Yojansel" loading="lazy" 
+                            <img src="${file.name}" alt="Proyecto ${numeroProyecto} - Alumister" loading="lazy" 
                                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
                         </div>
                         <div class="p-3 bg-white flex justify-between items-center text-xs border-t border-slate-100">
@@ -218,7 +219,7 @@
 
     <!-- Pie de página -->
     <footer class="bg-white border-t border-slate-200 py-8 text-center text-slate-500 text-sm mt-auto">
-        <p>© Alumister-Yojansel — Carpintería de Aluminio & Vidrio Arquitectónico</p>
+        <p>© Alumister — Carpintería de Aluminio & Vidrio Arquitectónico</p>
         <p class="mt-1">WhatsApp: <a href="https://wa.me/18099442504" class="text-cyan-600 font-semibold underline">809-944-2504</a></p>
     </footer>
 
