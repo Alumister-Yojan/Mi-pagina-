@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotizador Automático | Alumister-Yojansel</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col font-sans">
+
+    <!-- Navegación Superior -->
+    <nav class="bg-slate-950/80 backdrop-blur-md border-b border-slate-800 sticky top-0 z-50 py-4 px-4 sm:px-8 flex justify-between items-center">
+        <a href="index.html" class="flex items-center gap-2 font-bold text-xl text-white hover:text-cyan-400 transition-colors">
+            <i class="fa-solid fa-arrow-left text-cyan-400"></i> Volver al Inicio
+        </a>
+        <a href="https://wa.me/18099442504?text=Hola,%20quisiera%20asesoría%20con%20una%20cotización" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-4 py-2 rounded-full text-sm flex items-center gap-2 transition-all">
+            <i class="fa-brands fa-whatsapp text-lg"></i> Soporte WhatsApp
+        </a>
+    </nav>
+
+    <!-- Encabezado -->
+    <header class="py-10 px-4 text-center max-w-3xl mx-auto">
+        <span class="bg-cyan-500/20 text-cyan-300 border border-cyan-400/30 text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Herramienta Interactiva</span>
+        <h1 class="text-3xl sm:text-4xl font-extrabold mt-3 text-white">Cotizador Automático de Proyectos</h1>
+        <p class="text-slate-400 text-sm sm:text-base mt-2">Calcula un estimado aproximado para tus puertas, ventanas, gabinetes o clósets y envíalo directo a nuestro WhatsApp.</p>
+    </header>
+
+    <!-- Contenedor Principal del Cotizador -->
+    <main class="max-w-3xl mx-auto px-4 pb-20 flex-1 w-full">
+        <div class="bg-slate-800/80 border border-slate-700 rounded-2xl p-6 sm:p-8 shadow-2xl backdrop-blur-sm">
+            
+            <form id="form-cotizador" onsubmit="event.preventDefault(); calcularCotizacion();" class="space-y-6">
+                
+                <!-- 1. Selección de Producto -->
+                <div>
+                    <label class="block text-sm font-semibold text-slate-200 mb-2">1. Selecciona el Tipo de Producto:</label>
+                    <select id="producto" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors">
+                        <option value="ventanas">Ventanas de Aluminio y Vidrio</option>
+                        <option value="gabinetes">Gabinetes Modernos de Cocina</option>
+                        <option value="closets">Clósets a la Medida</option>
+                        <option value="mamparas">Mamparas para Baño</option>
+                        <option value="puertas">Puertas de Aluminio</option>
+                        <option value="despensas">Despensas Modernas</option>
+                    </select>
+                </div>
+
+                <!-- 2. Medidas (Ancho y Alto) -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-200 mb-2">Ancho aproximado (Pies):</label>
+                        <input type="number" id="ancho" step="0.1" min="1" placeholder="Ej: 5" required 
+                               class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-semibold text-slate-200 mb-2">Alto aproximado (Pies):</label>
+                        <input type="number" id="alto" step="0.1" min="1" placeholder="Ej: 4" required 
+                               class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors">
+                    </div>
+                </div>
+
+                <!-- 3. Tipo de Instalación / Opciones -->
+                <div>
+                    <label class="block text-sm font-semibold text-slate-200 mb-2">2. ¿Incluye Instalación / Montaje?</label>
+                    <select id="instalacion" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors">
+                        <option value="si">Sí, con Fabricación e Instalación</option>
+                        <option value="no">Solo Fabricación (Sin instalación)</option>
+                    </select>
+                </div>
+
+                <!-- Botón de Cálculo -->
+                <button type="button" onclick="calcularCotizacion()" class="w-full bg-cyan-500 hover:bg-cyan-600 text-slate-950 font-extrabold py-3.5 rounded-xl transition-all shadow-lg flex justify-center items-center gap-2 text-base">
+                    <i class="fa-solid fa-calculator"></i> Calcular Estimado
+                </button>
+            </form>
+
+            <!-- Resultado del Cálculo (Oculto al inicio) -->
+            <div id="resultado-container" class="mt-8 pt-6 border-t border-slate-700 hidden text-center animate-fade-in">
+                <h3 class="text-slate-400 text-sm uppercase tracking-wider font-semibold">Estimado Aproximado:</h3>
+                <div id="precio-estimado" class="text-3xl sm:text-4xl font-black text-cyan-400 my-2">RD$ 0.00</div>
+                <p class="text-xs text-slate-400 mt-1">*Este precio es un estimado referencial sujeto a confirmación con medidas exactas.</p>
+
+                <!-- Botón para enviar por WhatsApp -->
+                <div class="mt-6">
+                    <a id="btn-enviar-wpp" href="#" target="_blank" class="w-full bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-lg flex justify-center items-center gap-2 text-base">
+                        <i class="fa-brands fa-whatsapp text-xl"></i> Enviar esta Cotización por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Script de Cálculo Automático -->
+    <script>
+        function calcularCotizacion() {
+            const productoSelect = document.getElementById('producto');
+            const productoNombre = productoSelect.options[productoSelect.selectedIndex].text;
+            const productoValor = productoSelect.value;
+            
+            const ancho = parseFloat(document.getElementById('ancho').value) || 0;
+            const alto = parseFloat(document.getElementById('alto').value) || 0;
+            const instalacion = document.getElementById('instalacion').value;
+
+            if (ancho <= 0 || alto <= 0) {
+                alert("Por favor, ingresa un ancho y alto válidos.");
+                return;
+            }
+
+            // Calcular pies cuadrados aproximados
+            const piesCuadrados = ancho * alto;
+
+            // Precios base aproximados por pie cuadrado (puedes ajustarlos luego con calma)
+            let precioPorPie = 2500; // Precio base general
+            if (productoValor === 'gabinetes' || productoValor === 'closets' || productoValor === 'despensas') {
+                precioPorPie = 3200; // Muebles suelen llevar más detalle
+            } else if (productoValor === 'mamparas') {
+                precioPorPie = 3000;
+            }
+
+            let subtotal = piesCuadrados * precioPorPie;
+
+            // Ajuste si incluye instalación
+            let detalleInstalacion = "Con Fabricación e Instalación";
+            if (instalacion === 'no') {
+                subtotal = subtotal * 0.85; // Descuento si es solo fabricación
+                detalleInstalacion = "Solo Fabricación (Sin instalación)";
+            }
+
+            // Formatear precio en moneda dominicana
+            const precioFormateado = new Intl.NumberFormat('es-DO', { style: 'currency', currency: 'DOP' }).format(subtotal);
+
+            // Mostrar el contenedor de resultados
+            document.getElementById('resultado-container').classList.remove('hidden');
+            document.getElementById('precio-estimado').innerText = precioFormateado;
+
+            // Crear el mensaje personalizado para WhatsApp
+            const mensajeWpp = `Hola, Alumister-Yojansel. Me gustaría cotizar el siguiente proyecto:%0A%0A- *Producto:* ${productoNombre}%0A- *Dimensiones:* ${ancho} pies de ancho x ${alto} alto (${piesCuadrados.toFixed(1)} pies²)%0A- *Modalidad:* ${detalleInstalacion}%0A- *Estimado en web:* ${precioFormateado}%0A%0A¿Me podrían confirmar disponibilidad y visita para medir?`;
+
+            // Asignar el enlace al botón de WhatsApp
+            const enlaceWpp = `https://wa.me/18099442504?text=${mensajeWpp}`;
+            document.getElementById('btn-enviar-wpp').setAttribute('href', enlaceWpp);
+        }
+    </script>
+
+    <!-- Pie de página -->
+    <footer class="bg-slate-950 border-t border-slate-800 py-8 text-center text-slate-400 text-sm mt-auto">
+        <p>© Alumister-Yojansel — Carpintería de Aluminio & Vidrio Arquitectónico</p>
+        <p class="mt-1">WhatsApp: <a href="https://wa.me/18099442504" class="text-cyan-400 underline">809-944-2504</a></p>
+    </footer>
+
+</body>
+</html>
