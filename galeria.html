@@ -57,181 +57,27 @@
             </div>
         </section>
 
-        <!-- Sección de Videos de Demostración (Todos Silenciados / Sin Audio) -->
+        <!-- Sección de Videos de Demostración (Del 1 al 8) -->
         <section>
             <h2 class="text-2xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-3 flex items-center gap-2">
                 <i class="fa-solid fa-circle-play text-cyan-600"></i> Demostraciones en Video
             </h2>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                <!-- Video 1 (Silenciado) -->
+                <!-- Video 1 (Sin Audio) -->
                 <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 p-3 shadow-lg shadow-slate-200/50 flex flex-col justify-between hover:shadow-xl transition-all">
                     <video controls muted preload="metadata" class="w-full h-64 object-cover rounded-xl bg-slate-950">
                         <source src="video-1.mp4" type="video/mp4">
-                        Tu navegador no soporta la reproducción de video.
                     </video>
                     <div class="mt-3 flex justify-between items-center text-xs">
-                        <span class="font-bold text-slate-800">Video #1</span>
+                        <span class="font-bold text-slate-800">Video #1 <span class="text-slate-500 font-normal">(Sin Audio)</span></span>
                         <a href="https://wa.me/18099442504?text=Hola,%20me%20interesa%20un%20trabajo%20como%20el%20del%20Video%20%231" target="_blank" class="text-cyan-600 hover:text-cyan-700 font-bold flex items-center gap-1">
                             <i class="fa-brands fa-whatsapp text-sm text-emerald-500"></i> Cotizar
                         </a>
                     </div>
                 </div>
 
-                <!-- Video 2 (Silenciado) -->
+                <!-- Video 2 (Sin Audio) -->
                 <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 p-3 shadow-lg shadow-slate-200/50 flex flex-col justify-between hover:shadow-xl transition-all">
                     <video controls muted preload="metadata" class="w-full h-64 object-cover rounded-xl bg-slate-950">
-                        <source src="video-2.mp4" type="video/mp4">
-                        Tu navegador no soporta la reproducción de video.
-                    </video>
-                    <div class="mt-3 flex justify-between items-center text-xs">
-                        <span class="font-bold text-slate-800">Video #2</span>
-                        <a href="https://wa.me/18099442504?text=Hola,%20me%20interesa%20un%20trabajo%20como%20el%20del%20Video%20%232" target="_blank" class="text-cyan-600 hover:text-cyan-700 font-bold flex items-center gap-1">
-                            <i class="fa-brands fa-whatsapp text-sm text-emerald-500"></i> Cotizar
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Video 3 (Silenciado) -->
-                <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 p-3 shadow-lg shadow-slate-200/50 flex flex-col justify-between hover:shadow-xl transition-all">
-                    <video controls muted preload="metadata" class="w-full h-64 object-cover rounded-xl bg-slate-950">
-                        <source src="video-3.mp4" type="video/mp4">
-                        Tu navegador no soporta la reproducción de video.
-                    </video>
-                    <div class="mt-3 flex justify-between items-center text-xs">
-                        <span class="font-bold text-slate-800">Video #3</span>
-                        <a href="https://wa.me/18099442504?text=Hola,%20me%20interesa%20un%20trabajo%20como%20el%20del%20Video%20%233" target="_blank" class="text-cyan-600 hover:text-cyan-700 font-bold flex items-center gap-1">
-                            <i class="fa-brands fa-whatsapp text-sm text-emerald-500"></i> Cotizar
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Video 4 (Con Sonido) -->
-                <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 p-3 shadow-lg shadow-slate-200/50 flex flex-col justify-between hover:shadow-xl transition-all">
-                    <video controls muted preload="metadata" class="w-full h-64 object-cover rounded-xl bg-slate-950">
-                        <source src="video-4.mp4" type="video/mp4">
-                        Tu navegador no soporta la reproducción de video.
-                    </video>
-                    <div class="mt-3 flex justify-between items-center text-xs">
-                        <span class="font-bold text-slate-800">Video #4</span>
-                        <a href="https://wa.me/18099442504?text=Hola,%20me%20interesa%20un%20trabajo%20como%20el%20del%20Video%20%234" target="_blank" class="text-cyan-600 hover:text-cyan-700 font-bold flex items-center gap-1">
-                            <i class="fa-brands fa-whatsapp text-sm text-emerald-500"></i> Cotizar
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Script Inteligente con la API de GitHub -->
-    <script>
-        async function cargarProyectosGitHub() {
-            const usuario = "Alumister"; 
-            const repositorio = "Mi-pagina-"; 
-            
-            const url = `https://api.github.com/repos/${usuario}/${repositorio}/contents/`;
-
-            try {
-                const response = await fetch(url);
-                const files = await response.json();
-
-                const container = document.getElementById('galeria-grid');
-                container.innerHTML = ""; 
-
-                let fotosProyectos = files.filter(file => 
-                    file.name.toLowerCase().startsWith('proyecto-') && 
-                    (file.name.toLowerCase().endsWith('.jpeg') || file.name.toLowerCase().endsWith('.jpg'))
-                );
-
-                fotosProyectos.sort((a, b) => {
-                    const numA = parseInt(a.name.replace(/[^0-9]/g, '')) || 0;
-                    const numB = parseInt(b.name.replace(/[^0-9]/g, '')) || 0;
-                    return numA - numB;
-                });
-
-                if (fotosProyectos.length === 0) {
-                    container.innerHTML = `<p class="col-span-full text-center text-slate-500">No se encontraron proyectos en este momento.</p>`;
-                    return;
-                }
-
-                fotosProyectos.forEach((file, index) => {
-                    const numeroProyecto = index + 1;
-                    
-                    let grupo = 'bloque3';
-                    if (numeroProyecto <= 30) grupo = 'bloque1';
-                    else if (numeroProyecto <= 60) grupo = 'bloque2';
-
-                    const card = document.createElement('div');
-                    card.className = "proyecto-card bg-white rounded-2xl overflow-hidden border border-slate-200/80 shadow-md hover:shadow-xl hover:border-cyan-500/50 transition-all duration-300 group";
-                    card.setAttribute('data-grupo', grupo);
-
-                    card.innerHTML = `
-                        <div class="relative overflow-hidden aspect-square bg-slate-100">
-                            <img src="${file.name}" alt="Proyecto ${numeroProyecto} - Alumister" loading="lazy" 
-                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                        <div class="p-3 bg-white flex justify-between items-center text-xs border-t border-slate-100">
-                            <span class="font-bold text-slate-800">Proyecto #${numeroProyecto}</span>
-                            <a href="https://wa.me/18099442504?text=Hola,%20me%20interesa%20un%20trabajo%20como%20el%20del%20Proyecto%20%23${numeroProyecto}" target="_blank" class="text-cyan-600 hover:text-cyan-700 font-bold flex items-center gap-1">
-                                <i class="fa-brands fa-whatsapp text-sm text-emerald-500"></i> Cotizar
-                            </a>
-                        </div>
-                    `;
-                    container.appendChild(card);
-                });
-
-            } catch (error) {
-                console.error("Error al conectar con GitHub:", error);
-                document.getElementById('galeria-grid').innerHTML = `
-                    <p class="col-span-full text-center text-red-500">Hubo un error al cargar la galería automáticamente.</p>
-                `;
-            }
-        }
-
-        function filtrarGaleria(tipo) {
-            const tarjetas = document.querySelectorAll('.proyecto-card');
-            const botones = ['btn-todos', 'btn-bloque1', 'btn-bloque2', 'btn-bloque3'];
-
-            botones.forEach(btnId => {
-                const b = document.getElementById(btnId);
-                if (b) {
-                    if (btnId === 'btn-' + tipo) {
-                        b.className = "px-3.5 py-2 rounded-xl bg-cyan-600 text-white font-semibold transition-all shadow-sm";
-                    } else {
-                        b.className = "px-3.5 py-2 rounded-xl bg-white border border-slate-200 text-slate-700 hover:bg-slate-100 font-semibold transition-all shadow-sm";
-                    }
-                }
-            });
-
-            tarjetas.forEach(card => {
-                if (tipo === 'todos' || card.getAttribute('data-grupo') === tipo) {
-                    card.style.display = 'block';
-                } else {
-                    card.style.display = 'none';
-                }
-            });
-        }
-
-        cargarProyectosGitHub();
-    </script>
-
-    <!-- Pie de página -->
-    <footer class="bg-white border-t border-slate-200 py-8 text-center text-slate-500 text-sm mt-auto">
-        <p>© Alumister — Carpintería de Aluminio & Vidrio Arquitectónico</p>
-        <p class="mt-1">WhatsApp: <a href="https://wa.me/18099442504" class="text-cyan-600 font-semibold underline">809-944-2504</a></p>
-    </footer>
-
-    <!-- Botón Flotante de WhatsApp Permanente -->
-    <a href="https://wa.me/18099442504?text=Hola,%20me%20gustaría%20recibir%20más%20información%20sobre%20sus%20trabajos" 
-       target="_blank" 
-       class="fixed bottom-6 right-6 z-50 bg-emerald-500 hover:bg-emerald-600 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-3xl transition-all duration-300 hover:scale-110 group"
-       title="Escríbenos por WhatsApp">
-        <i class="fa-brands fa-whatsapp"></i>
-        <span class="absolute right-16 bg-slate-900 text-white text-xs font-semibold px-3 py-1.5 rounded-xl shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap border border-slate-700">
-            ¡Escríbenos aquí!
-        </span>
-    </a>
-
-</body>
-</html>
+                        <source src="video-2.mp4" type="video/mp
