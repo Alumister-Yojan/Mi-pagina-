@@ -47,23 +47,44 @@
                     </select>
                 </div>
 
-                <!-- 2. Medidas (Ancho y Alto) -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                        <label class="block text-sm font-semibold text-slate-200 mb-2">Ancho aproximado (Pies):</label>
-                        <input type="number" id="ancho" step="0.1" min="1" placeholder="Ej: 5" required 
-                               class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors">
+                <!-- 2. Medidas (Ancho y Alto) con Nota de Ayuda -->
+                <div>
+                    <div class="flex justify-between items-center mb-2">
+                        <label class="block text-sm font-semibold text-slate-200">2. Ingresa las Medidas (en Pies):</label>
+                        <span class="text-xs text-cyan-400 bg-cyan-950/60 border border-cyan-800/50 px-2.5 py-1 rounded-lg flex items-center gap-1.5 font-medium">
+                            <i class="fa-solid fa-lightbulb"></i> ¿Cómo medir?
+                        </span>
                     </div>
-                    <div>
-                        <label class="block text-sm font-semibold text-slate-200 mb-2">Alto aproximado (Pies):</label>
-                        <input type="number" id="alto" step="0.1" min="1" placeholder="Ej: 4" required 
-                               class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors">
+
+                    <!-- Nota desplegable / informativa de ayuda para medir -->
+                    <div class="bg-slate-900/90 border border-cyan-500/30 rounded-xl p-4 mb-4 text-xs text-slate-300 space-y-2">
+                        <p class="font-bold text-cyan-300 flex items-center gap-1">
+                            <i class="fa-solid fa-ruler-combined"></i> Guía rápida para tomar medidas:
+                        </p>
+                        <ul class="list-disc list-inside space-y-1 text-slate-400">
+                            <li><strong class="text-slate-200">Ancho:</strong> Mide de izquierda a derecha el espacio total donde irá instalado el trabajo.</li>
+                            <li><strong class="text-slate-200">Alto:</strong> Mide desde la parte más baja hasta la más alta.</li>
+                            <li><em class="text-cyan-400/90">Tip: Si tienes la medida en pulgadas, divídela entre 12 para obtener los pies (Ej: 60 pulgadas ÷ 12 = 5 pies).</em></li>
+                        </ul>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-medium text-slate-400 mb-1">Ancho (Pies):</label>
+                            <input type="number" id="ancho" step="0.1" min="1" placeholder="Ej: 5" required 
+                                   class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-medium text-slate-400 mb-1">Alto (Pies):</label>
+                            <input type="number" id="alto" step="0.1" min="1" placeholder="Ej: 4" required 
+                                   class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors">
+                        </div>
                     </div>
                 </div>
 
                 <!-- 3. Tipo de Instalación / Opciones -->
                 <div>
-                    <label class="block text-sm font-semibold text-slate-200 mb-2">2. ¿Incluye Instalación / Montaje?</label>
+                    <label class="block text-sm font-semibold text-slate-200 mb-2">3. ¿Incluye Instalación / Montaje?</label>
                     <select id="instalacion" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-cyan-400 transition-colors">
                         <option value="si">Sí, con Fabricación e Instalación</option>
                         <option value="no">Solo Fabricación (Sin instalación)</option>
@@ -80,7 +101,7 @@
             <div id="resultado-container" class="mt-8 pt-6 border-t border-slate-700 hidden text-center animate-fade-in">
                 <h3 class="text-slate-400 text-sm uppercase tracking-wider font-semibold">Estimado Aproximado:</h3>
                 <div id="precio-estimado" class="text-3xl sm:text-4xl font-black text-cyan-400 my-2">RD$ 0.00</div>
-                <p class="text-xs text-slate-400 mt-1">*Este precio es un estimado referencial sujeto a confirmación con medidas exactas.</p>
+                <p class="text-xs text-slate-400 mt-1">*Este precio es un estimado referencial sujeto a confirmación con medidas exactas en obra.</p>
 
                 <!-- Botón para enviar por WhatsApp -->
                 <div class="mt-6">
