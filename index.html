@@ -46,32 +46,32 @@
 <body class="bg-slate-50 text-slate-800 font-sans antialiased leading-relaxed">
 
     <!-- Encabezado / Navegación -->
-    <header class="sticky top-0 z-40 bg-slate-900/90 backdrop-blur-md border-b border-slate-800 text-white transition-all">
+    <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200 text-slate-900 shadow-sm transition-all">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <!-- Logo -->
                 <div class="flex items-center space-x-3 cursor-pointer" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
-                    <div class="w-10 h-10 bg-gradient-to-tr from-blue-600 to-cyan-400 rounded-xl flex items-center justify-center text-white shadow-lg">
+                    <div class="w-10 h-10 bg-gradient-to-tr from-cyan-600 to-blue-500 rounded-xl flex items-center justify-center text-white shadow-md">
                         <i class="fa-solid font-bold text-xl fa-border-all"></i>
                     </div>
                     <div>
-                        <span class="text-xl font-extrabold tracking-wider bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">ALUMISTER</span>
-                        <span class="block text-[10px] text-cyan-400 font-medium tracking-widest uppercase">Puertas, Ventanas y Más</span>
+                        <span class="text-xl font-extrabold tracking-wider bg-gradient-to-r from-slate-900 via-slate-700 to-slate-800 bg-clip-text text-transparent">ALUMISTER</span>
+                        <span class="block text-[10px] text-cyan-600 font-bold tracking-widest uppercase">Puertas, Ventanas y Más</span>
                     </div>
                 </div>
 
                 <!-- Menú Escritorio -->
                 <nav class="hidden md:flex items-center space-x-6 text-sm font-medium">
-                    <a href="galeria.html" class="hover:text-cyan-400 transition-colors">Galería de Trabajos</a>
-                    <a href="cotizar.html" class="text-cyan-400 hover:text-cyan-300 transition-colors flex items-center gap-1.5 font-bold">
+                    <a href="galeria.html" class="hover:text-cyan-600 transition-colors">Galería de Trabajos</a>
+                    <a href="cotizar.html" class="text-cyan-600 hover:text-cyan-700 transition-colors flex items-center gap-1.5 font-bold">
                         <i class="fa-solid fa-calculator"></i> Cotizador Automático
                     </a>
-                    <a href="#modalidades" class="hover:text-cyan-400 transition-colors">Con/Sin Montura</a>
+                    <a href="#modalidades" class="hover:text-cyan-600 transition-colors">Con/Sin Montura</a>
                 </nav>
 
                 <!-- Botón Acción Directa -->
                 <div class="hidden sm:flex items-center space-x-3">
-                    <a href="cotizar.html" class="bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-white font-bold px-5 py-2.5 rounded-full shadow-lg transition-all text-sm flex items-center gap-2">
+                    <a href="cotizar.html" class="bg-gradient-to-r from-cyan-600 to-blue-600 hover:from-cyan-700 hover:to-blue-700 text-white font-bold px-5 py-2.5 rounded-full shadow-md transition-all text-sm flex items-center gap-2">
                         <i class="fa-solid fa-calculator"></i> Cotizador Online
                     </a>
                 </div>
@@ -114,19 +114,19 @@
     <section id="modalidades" class="py-14 bg-gradient-to-b from-slate-100 to-slate-50 border-y border-slate-200">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-10">
-                <span class="text-xs font-extrabold uppercase tracking-widest text-blue-600 bg-blue-100 px-3 py-1 rounded-full">Modalidades de Trabajo</span>
+                <span class="text-xs font-extrabold uppercase tracking-widest text-cyan-700 bg-cyan-100 px-3.5 py-1.5 rounded-full">Modalidades de Trabajo</span>
                 <h2 class="text-3xl font-extrabold text-slate-900 mt-3">¿Cómo prefieres tu proyecto?</h2>
                 <p class="text-slate-600 text-sm mt-2">Nos adaptamos a tu presupuesto y necesidades. Elige la opción ideal para ti.</p>
             </div>
 
             <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                 <!-- Con Montura -->
-                <div class="relative bg-white p-8 rounded-3xl shadow-md border-2 border-blue-500 flex flex-col justify-between hover:shadow-xl transition-all">
-                    <span class="absolute -top-3.5 right-6 bg-blue-600 text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">
+                <div class="relative bg-white p-8 rounded-3xl shadow-md border-2 border-cyan-500 flex flex-col justify-between hover:shadow-xl transition-all">
+                    <span class="absolute -top-3.5 right-6 bg-cyan-600 text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">
                         ⭐ Servicio Completo
                     </span>
                     <div>
-                        <div class="w-14 h-14 bg-blue-100 text-blue-600 rounded-2xl flex items-center justify-center text-2xl font-bold mb-5">
+                        <div class="w-14 h-14 bg-cyan-100 text-cyan-700 rounded-2xl flex items-center justify-center text-2xl font-bold mb-5">
                             <i class="fa-solid fa-screwdriver-wrench"></i>
                         </div>
                         <h3 class="font-bold text-slate-900 text-2xl mb-2">Con Montura (Llave en Mano)</h3>
@@ -134,12 +134,12 @@
                             Nos encargamos de absolutamente todo para que no tengas que preocuparte por nada.
                         </p>
                         <ul class="space-y-2.5 text-sm text-slate-700 mb-6">
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-blue-600"></i> Medición técnica en tu residencia u obra</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-blue-600"></i> Fabricación con materiales premium</li>
-                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-blue-600"></i> Transporte e instalación profesional garantizada</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyan-600"></i> Medición técnica en tu residencia u obra</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyan-600"></i> Fabricación con materiales premium</li>
+                            <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyan-600"></i> Transporte e instalación profesional garantizada</li>
                         </ul>
                     </div>
-                    <a href="https://wa.me/18099442504?text=Hola,%20me%20interesa%20un%20trabajo%20CON%20MONTURA" target="_blank" class="w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition-colors text-sm shadow-md block">
+                    <a href="https://wa.me/18099442504?text=Hola,%20me%20interesa%20un%20trabajo%20CON%20MONTURA" target="_blank" class="w-full text-center bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 rounded-xl transition-colors text-sm shadow-md block">
                         Solicitar con Instalación
                     </a>
                 </div>
@@ -186,8 +186,8 @@
                     </div>
                 </div>
                 <div class="p-6 pt-0">
-                    <p class="text-lg font-bold text-blue-600 mb-4">Desde $12,000 DOP por metro lineal</p>
-                    <a href="cotizar.html" class="block text-center bg-blue-50 hover:bg-blue-100 text-blue-600 font-semibold py-2.5 px-4 rounded-lg text-sm transition-colors">
+                    <p class="text-lg font-bold text-cyan-600 mb-4">Desde $12,000 DOP por metro lineal</p>
+                    <a href="cotizar.html" class="block text-center bg-cyan-50 hover:bg-cyan-100 text-cyan-700 font-semibold py-2.5 px-4 rounded-lg text-sm transition-colors">
                         Calcular en Cotizador
                     </a>
                 </div>
@@ -203,8 +203,8 @@
                     </div>
                 </div>
                 <div class="p-6 pt-0">
-                    <p class="text-lg font-bold text-blue-600 mb-4">Desde $15,000 DOP por metro lineal</p>
-                    <a href="cotizar.html" class="block text-center bg-blue-50 hover:bg-blue-100 text-blue-600 font-semibold py-2.5 px-4 rounded-lg text-sm transition-colors">
+                    <p class="text-lg font-bold text-cyan-600 mb-4">Desde $15,000 DOP por metro lineal</p>
+                    <a href="cotizar.html" class="block text-center bg-cyan-50 hover:bg-cyan-100 text-cyan-700 font-semibold py-2.5 px-4 rounded-lg text-sm transition-colors">
                         Calcular en Cotizador
                     </a>
                 </div>
@@ -220,8 +220,8 @@
                     </div>
                 </div>
                 <div class="p-6 pt-0">
-                    <p class="text-lg font-bold text-blue-600 mb-4">Desde $8,500 DOP por pieza</p>
-                    <a href="cotizar.html" class="block text-center bg-blue-50 hover:bg-blue-100 text-blue-600 font-semibold py-2.5 px-4 rounded-lg text-sm transition-colors">
+                    <p class="text-lg font-bold text-cyan-600 mb-4">Desde $8,500 DOP por pieza</p>
+                    <a href="cotizar.html" class="block text-center bg-cyan-50 hover:bg-cyan-100 text-cyan-700 font-semibold py-2.5 px-4 rounded-lg text-sm transition-colors">
                         Calcular en Cotizador
                     </a>
                 </div>
@@ -237,8 +237,8 @@
                     </div>
                 </div>
                 <div class="p-6 pt-0">
-                    <p class="text-lg font-bold text-blue-600 mb-4">Desde RD$ 8,500</p>
-                    <a href="cotizar.html" class="block text-center bg-blue-50 hover:bg-blue-100 text-blue-600 font-semibold py-2.5 px-4 rounded-lg text-sm transition-colors">
+                    <p class="text-lg font-bold text-cyan-600 mb-4">Desde RD$ 8,500</p>
+                    <a href="cotizar.html" class="block text-center bg-cyan-50 hover:bg-cyan-100 text-cyan-700 font-semibold py-2.5 px-4 rounded-lg text-sm transition-colors">
                         Calcular en Cotizador
                     </a>
                 </div>
@@ -254,8 +254,8 @@
                     </div>
                 </div>
                 <div class="p-6 pt-0">
-                    <p class="text-lg font-bold text-blue-600 mb-4">Desde RD$ 15,000</p>
-                    <a href="cotizar.html" class="block text-center bg-blue-50 hover:bg-blue-100 text-blue-600 font-semibold py-2.5 px-4 rounded-lg text-sm transition-colors">
+                    <p class="text-lg font-bold text-cyan-600 mb-4">Desde RD$ 15,000</p>
+                    <a href="cotizar.html" class="block text-center bg-cyan-50 hover:bg-cyan-100 text-cyan-700 font-semibold py-2.5 px-4 rounded-lg text-sm transition-colors">
                         Calcular en Cotizador
                     </a>
                 </div>
@@ -271,8 +271,8 @@
                     </div>
                 </div>
                 <div class="p-6 pt-0">
-                    <p class="text-lg font-bold text-blue-600 mb-4">Desde RD$ 12,500</p>
-                    <a href="cotizar.html" class="block text-center bg-blue-50 hover:bg-blue-100 text-blue-600 font-semibold py-2.5 px-4 rounded-lg text-sm transition-colors">
+                    <p class="text-lg font-bold text-cyan-600 mb-4">Desde RD$ 12,500</p>
+                    <a href="cotizar.html" class="block text-center bg-cyan-50 hover:bg-cyan-100 text-cyan-700 font-semibold py-2.5 px-4 rounded-lg text-sm transition-colors">
                         Calcular en Cotizador
                     </a>
                 </div>
@@ -282,16 +282,16 @@
             <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col md:col-span-2 lg:col-span-3 bg-gradient-to-r from-cyan-50 via-slate-50 to-blue-50">
                 <div class="p-8 flex flex-col md:flex-row items-center justify-between gap-6">
                     <div class="flex-1">
-                        <span class="bg-blue-600 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Portafolio Multimedia</span>
+                        <span class="bg-cyan-600 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Portafolio Multimedia</span>
                         <h3 class="font-extrabold text-slate-900 text-2xl mt-2">Galería Interactiva de Proyectos</h3>
                         <p class="text-slate-600 text-base mt-2">Explora nuestra galería completa con fotos y videos demostrativos de nuestras instalaciones de ventanas, gabinetes, closets, despensas y mamparas.</p>
                     </div>
                     <div class="w-full md:w-auto flex flex-col sm:flex-row gap-3">
-                        <a href="galeria.html" class="block text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 px-8 rounded-xl shadow-md transition-all text-base">
+                        <a href="galeria.html" class="block text-center bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3.5 px-8 rounded-xl shadow-md transition-all text-base">
                             Ver Galería Completa
                         </a>
-                        <a href="cotizar.html" class="block text-center bg-cyan-500 hover:bg-cyan-600 text-slate-950 font-extrabold py-3.5 px-6 rounded-xl shadow-md transition-all text-base">
-                            <i class="fa-solid fa-calculator"></i> Cotizador Automático
+                        <a href="cotizar.html" class="block text-center bg-white border border-slate-300 text-slate-900 hover:bg-slate-100 font-bold py-3.5 px-6 rounded-xl shadow-md transition-all text-base">
+                            <i class="fa-solid fa-calculator text-cyan-600"></i> Cotizador Automático
                         </a>
                     </div>
                 </div>
@@ -299,31 +299,31 @@
         </div>
     </section>
 
-    <!-- Cotizador Rápido con Frase Personalizada -->
-    <section id="cotizador" class="py-16 bg-slate-900 text-white text-center">
+    <!-- Cotizador Rápido con Frase Personalizada (Diseño Luminoso y Limpio) -->
+    <section id="cotizador" class="py-16 bg-gradient-to-b from-slate-100 to-white text-slate-900 text-center border-t border-slate-200">
         <div class="max-w-3xl mx-auto px-4">
-            <span class="text-xs font-extrabold uppercase tracking-widest text-cyan-400 bg-cyan-950/80 px-3 py-1 rounded-full border border-cyan-800/50 mb-4 inline-block">
+            <span class="text-xs font-extrabold uppercase tracking-widest text-cyan-700 bg-cyan-100 px-3.5 py-1.5 rounded-full border border-cyan-200 mb-4 inline-block">
                 Diseño & Calidad Garantizada
             </span>
             <h2 class="text-3xl sm:text-4xl font-extrabold mb-4 leading-tight">
                 ¿Listo para transformar tu casa, apartamento o local al estilo más moderno y elegante?
             </h2>
-            <p class="text-slate-300 text-base sm:text-lg mb-8 max-w-2xl mx-auto">
+            <p class="text-slate-600 text-base sm:text-lg mb-8 max-w-2xl mx-auto">
                 Usa nuestro cotizador automático en línea para calcular un estimado inmediato o escríbenos directo por WhatsApp.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="cotizar.html" class="inline-flex items-center justify-center gap-3 bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-extrabold px-8 py-4 rounded-xl shadow-lg transition-all text-lg hover:scale-105">
+                <a href="cotizar.html" class="inline-flex items-center justify-center gap-3 bg-cyan-600 hover:bg-cyan-700 text-white font-extrabold px-8 py-4 rounded-xl shadow-lg shadow-cyan-600/30 transition-all text-lg hover:scale-105">
                     <i class="fa-solid fa-calculator"></i> Usar Cotizador Automático
                 </a>
-                <a href="https://wa.me/18099442504?text=Hola,%20quiero%20transformar%20mi%20espacio%20al%20estilo%20moderno%20y%20elegante" target="_blank" class="inline-flex items-center justify-center gap-3 bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg transition-all text-lg hover:scale-105">
+                <a href="https://wa.me/18099442504?text=Hola,%20quiero%20transformar%20mi%20espacio%20al%20estilo%20moderno%20y%20elegante" target="_blank" class="inline-flex items-center justify-center gap-3 bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-8 py-4 rounded-xl shadow-lg shadow-emerald-500/30 transition-all text-lg hover:scale-105">
                     <i class="fa-brands fa-whatsapp text-2xl"></i> Hablar por WhatsApp
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-slate-950 text-slate-400 py-8 text-center text-sm border-t border-slate-800">
+    <!-- Footer (Diseño Luminoso y Limpio) -->
+    <footer class="bg-white text-slate-500 py-8 text-center text-sm border-t border-slate-200">
         <p>© 2026 Alumister-Yojansel - Carpintería de Aluminio & Vidrio Arquitectónico. Todos los derechos reservados.</p>
     </footer>
 
