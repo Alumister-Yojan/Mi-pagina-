@@ -503,6 +503,19 @@
                         El tiempo de fabricación y entrega suele oscilar entre 5 y 10 días laborables, dependiendo de la complejidad y magnitud del proyecto. Te confirmaremos el plazo exacto al momento de formalizar tu pedido.
                     </p>
                 </details>
+
+                <!-- Pregunta 4: Formas de Pago -->
+                <details class="group bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition-all duration-200 [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer font-bold text-slate-900 text-base sm:text-lg">
+                        <span>¿Cuáles son las formas y métodos de pago aceptados?</span>
+                        <span class="ml-4 transition-transform group-open:rotate-180 text-cyan-600">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </span>
+                    </summary>
+                    <p class="mt-4 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+                        Aceptamos <strong class="text-slate-800">transferencias bancarias</strong> y <strong class="text-slate-800">pagos en efectivo</strong>. Para iniciar la fabricación requerimos un avance inicial (anticipo) y el saldo restante se completa contra entrega o al finalizar la instalación de tu proyecto.
+                    </p>
+                </details>
             </div>
         </div>
     </section>
@@ -547,14 +560,14 @@
                 lightboxImg.src = imgElement.src;
                 lightboxCaption.textContent = captionText;
                 lightbox.classList.remove('hidden');
-                document.body.style.overflow = 'hidden'; // Bloquear scroll de fondo
+                document.body.style.overflow = 'hidden';
             }
         }
 
         function closeLightbox() {
             const lightbox = document.getElementById('main-lightbox');
             lightbox.classList.add('hidden');
-            document.body.style.overflow = 'auto'; // Restaurar scroll
+            document.body.style.overflow = 'auto';
         }
 
         // Cerrar con la tecla Escape
