@@ -36,6 +36,7 @@
                     </a>
                     <a href="#modalidades" class="hover:text-cyan-600 transition-colors">Con/Sin Montura</a>
                     <a href="#testimonios" class="hover:text-cyan-600 transition-colors">Testimonios</a>
+                    <a href="#faq" class="hover:text-cyan-600 transition-colors">Preguntas Frecuentes</a>
                 </nav>
 
                 <!-- Botón Acción Directa (Escritorio) -->
@@ -58,6 +59,7 @@
             <a href="cotizar.html" class="block text-cyan-600 font-bold hover:text-cyan-700 transition-colors py-1"><i class="fa-solid fa-calculator mr-2"></i> Cotizador Automático</a>
             <a href="#modalidades" onclick="toggleMenu()" class="block text-slate-700 hover:text-cyan-600 transition-colors py-1"><i class="fa-solid fa-screwdriver-wrench text-cyan-600 mr-2"></i> Con/Sin Montura</a>
             <a href="#testimonios" onclick="toggleMenu()" class="block text-slate-700 hover:text-cyan-600 transition-colors py-1"><i class="fa-solid fa-star text-cyan-600 mr-2"></i> Testimonios</a>
+            <a href="#faq" onclick="toggleMenu()" class="block text-slate-700 hover:text-cyan-600 transition-colors py-1"><i class="fa-solid fa-circle-question text-cyan-600 mr-2"></i> Preguntas Frecuentes</a>
             <div class="pt-3 border-t border-slate-100">
                 <a href="cotizar.html" class="w-full text-center bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 rounded-xl shadow-md block text-sm">
                     <i class="fa-solid fa-calculator mr-1"></i> Ir al Cotizador Online
@@ -404,6 +406,87 @@
                    class="inline-flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold px-6 py-3 rounded-xl border border-slate-300 text-sm transition-all shadow-sm">
                     <i class="fa-solid fa-pen-to-square text-cyan-600"></i> ¿Trabajamos juntos? Déjanos tu opinión aquí
                 </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Preguntas Frecuentes (FAQ) -->
+    <section id="faq" class="py-16 bg-slate-100 border-t border-slate-200">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-cyan-700 bg-cyan-100 px-3.5 py-1.5 rounded-full border border-cyan-200">
+                    Resuelve tus Dudas
+                </span>
+                <h2 class="text-3xl font-extrabold text-slate-900 mt-3 sm:text-4xl">Preguntas Frecuentes</h2>
+                <p class="text-slate-600 text-sm mt-2">Todo lo que necesitas saber antes de iniciar tu proyecto con Alumister.</p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Pregunta 1 -->
+                <details class="group bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition-all duration-200 [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer font-bold text-slate-900 text-base sm:text-lg">
+                        <span>¿Cómo solicito una cotización exacta para mi proyecto?</span>
+                        <span class="ml-4 transition-transform group-open:rotate-180 text-cyan-600">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </span>
+                    </summary>
+                    <p class="mt-4 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+                        Puedes usar nuestro <strong class="text-slate-800">Cotizador Automático</strong> en la página web para obtener un estimado inmediato o escribirnos directo por <strong class="text-emerald-600">WhatsApp</strong>. Solo necesitas enviarnos las medidas aproximadas (ancho x alto) y el tipo de trabajo que buscas.
+                    </p>
+                </details>
+
+                <!-- Pregunta 2 -->
+                <details class="group bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition-all duration-200 [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer font-bold text-slate-900 text-base sm:text-lg">
+                        <span>¿Toman las medidas exactas antes de fabricar?</span>
+                        <span class="ml-4 transition-transform group-open:rotate-180 text-cyan-600">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </span>
+                    </summary>
+                    <p class="mt-4 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+                        ¡Sí! En la modalidad <strong class="text-slate-800">Con Montura</strong>, un técnico capacitado visita tu residencia u obra para realizar la medición técnica precisa y coordinar todos los detalles de instalación.
+                    </p>
+                </details>
+
+                <!-- Pregunta 3 -->
+                <details class="group bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition-all duration-200 [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer font-bold text-slate-900 text-base sm:text-lg">
+                        <span>¿Cuál es la diferencia entre "Con Montura" y "Sin Montura"?</span>
+                        <span class="ml-4 transition-transform group-open:rotate-180 text-cyan-600">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </span>
+                    </summary>
+                    <div class="mt-4 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4 space-y-2">
+                        <p><strong class="text-cyan-700">Con Montura:</strong> Nos encargamos de la medición, fabricación, transporte e instalación garantizada en tu espacio.</p>
+                        <p><strong class="text-slate-800">Sin Montura:</strong> Fabricamos la pieza con las medidas exactas que nos proporciones y te entregamos el producto empacado para que lo instale tu personal de confianza.</p>
+                    </div>
+                </details>
+
+                <!-- Pregunta 4 -->
+                <details class="group bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition-all duration-200 [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer font-bold text-slate-900 text-base sm:text-lg">
+                        <span>¿Cuánto tiempo toma la fabricación e instalación?</span>
+                        <span class="ml-4 transition-transform group-open:rotate-180 text-cyan-600">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </span>
+                    </summary>
+                    <p class="mt-4 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+                        El tiempo estándar de fabricación varía entre <strong class="text-slate-800">3 y 7 días hábiles</strong> según el volumen del trabajo. La instalación en el lugar suele realizarse en un solo día de forma limpia y eficiente.
+                    </p>
+                </details>
+
+                <!-- Pregunta 5 -->
+                <details class="group bg-white p-6 rounded-2xl border border-slate-200 shadow-sm transition-all duration-200 [&_summary::-webkit-details-marker]:hidden">
+                    <summary class="flex items-center justify-between cursor-pointer font-bold text-slate-900 text-base sm:text-lg">
+                        <span>¿Qué tipo de vidrios y perfiles de aluminio utilizan?</span>
+                        <span class="ml-4 transition-transform group-open:rotate-180 text-cyan-600">
+                            <i class="fa-solid fa-chevron-down"></i>
+                        </span>
+                    </summary>
+                    <p class="mt-4 text-slate-600 text-sm leading-relaxed border-t border-slate-100 pt-4">
+                        Utilizamos perfiles de aluminio de alta resistencia (P-92, P-40) y vidrios templados de seguridad, tintados, azulados decorativos y texturizados. Todos son inoxidables, resistentes a la humedad y diseñados para larga durabilidad.
+                    </p>
+                </details>
             </div>
         </div>
     </section>
