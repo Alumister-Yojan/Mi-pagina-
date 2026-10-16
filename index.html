@@ -10,8 +10,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts Inter -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* Ocultar barra de scroll en carruseles táctiles de móvil */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans antialiased leading-relaxed min-h-screen flex flex-col">
+<body class="bg-slate-50 text-slate-800 font-sans antialiased leading-relaxed min-h-screen flex flex-col pb-16 md:pb-0">
 
     <!-- Encabezado / Navegación -->
     <header class="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-slate-200 text-slate-900 shadow-sm transition-all">
@@ -66,12 +76,10 @@
         </div>
     </header>
 
-    <!-- Script para el Menú Móvil -->
     <script>
         function toggleMenu() {
             const menu = document.getElementById('mobile-menu');
             const icon = document.getElementById('menu-icon');
-            
             menu.classList.toggle('hidden');
             if (menu.classList.contains('hidden')) {
                 icon.className = "fa-solid fa-bars";
@@ -101,10 +109,10 @@
                     Especialistas en ventanas, gabinetes, despensas modernas, closets, mamparas para baños y puertas. Elige comprar con instalador profesional o solo fabricación.
                 </p>
                 <div class="flex flex-col sm:flex-row items-start gap-4">
-                    <a href="cotizar.html" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-extrabold px-8 py-4 rounded-full shadow-lg transition-all flex items-center justify-center gap-3 text-base">
+                    <a href="cotizar.html" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-extrabold px-8 py-4 rounded-full shadow-lg transition-all flex items-center justify-center gap-3 text-base w-full sm:w-auto">
                         <i class="fa-solid fa-calculator text-xl"></i> Ir al Cotizador Automático
                     </a>
-                    <a href="https://wa.me/18099442504?text=Hola,%20quisiera%20solicitar%20una%20cotización" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-8 py-4 rounded-full shadow-lg transition-all flex items-center justify-center gap-3 text-base">
+                    <a href="https://wa.me/18099442504?text=Hola,%20quisiera%20solicitar%20una%20cotización" target="_blank" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-8 py-4 rounded-full shadow-lg transition-all flex items-center justify-center gap-3 text-base w-full sm:w-auto">
                         <i class="fa-brands fa-whatsapp text-2xl"></i> Cotizar por WhatsApp
                     </a>
                 </div>
@@ -168,27 +176,31 @@
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- Galería con Precios Reales -->
-    <section id="galeria" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto mb-10">
+    </section><!-- Galería con Precios Reales (Con Carrusel Deslizable en Móviles) -->
+    <section id="galeria" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div class="text-center max-w-3xl mx-auto mb-8">
             <h2 class="text-3xl font-extrabold text-slate-900 sm:text-4xl">Galería y Precios Estimados</h2>
             <p class="text-slate-600 mt-2">Nuestros modelos más solicitados con precios de referencia.</p>
+            <!-- Indicador Móvil -->
+            <span class="inline-block md:hidden mt-3 text-xs text-cyan-600 font-bold bg-cyan-50 px-3 py-1 rounded-full border border-cyan-200">
+                👈 Desliza con el dedo para ver más 👉
+            </span>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Contenedor Adaptativo: Carrusel en Móvil / Grid en Escritorio -->
+        <div class="flex md:grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 overflow-x-auto snap-x snap-mandatory no-scrollbar pb-4 md:pb-0">
+            
             <!-- Producto 1: Ventanas -->
-            <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div class="snap-center shrink-0 w-[85vw] sm:w-[350px] md:w-auto bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col justify-between">
                 <div>
-                    <img src="ventanas-yojansel.jpg" alt="Ventanas" class="w-full h-60 object-cover" onerror="this.src='proyecto-1.jpeg'">
-                    <div class="p-6">
+                    <img src="ventanas-yojansel.jpg" alt="Ventanas" class="w-full h-56 md:h-60 object-cover" onerror="this.src='proyecto-1.jpeg'">
+                    <div class="p-5 md:p-6">
                         <h3 class="font-bold text-slate-900 text-xl">Ventanas</h3>
-                        <p class="text-slate-600 text-sm mt-2">Diseños P-92 y P-40 con marcos de aluminio plateado, vidrios tintados, texturizados y cristales azules de diseño. Instalación profesional con durabilidad garantizada.</p>
+                        <p class="text-slate-600 text-sm mt-2">Diseños P-92 y P-40 con marcos de aluminio plateado, vidrios tintados, texturizados y cristales azules de diseño.</p>
                     </div>
                 </div>
-                <div class="p-6 pt-0">
-                    <p class="text-lg font-bold text-cyan-600 mb-4">Desde $12,000 DOP por metro lineal</p>
+                <div class="p-5 md:p-6 pt-0">
+                    <p class="text-lg font-bold text-cyan-600 mb-4">Desde $12,000 DOP/m.l.</p>
                     <a href="cotizar.html" class="block text-center bg-cyan-50 hover:bg-cyan-100 text-cyan-700 font-semibold py-2.5 px-4 rounded-lg text-sm transition-colors">
                         Calcular en Cotizador
                     </a>
@@ -196,16 +208,16 @@
             </div>
 
             <!-- Producto 2: Gabinetes -->
-            <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div class="snap-center shrink-0 w-[85vw] sm:w-[350px] md:w-auto bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col justify-between">
                 <div>
-                    <img src="gabinetes-yojansel.jpg" alt="Gabinetes" class="w-full h-60 object-cover" onerror="this.src='proyecto-2.jpeg'">
-                    <div class="p-6">
+                    <img src="gabinetes-yojansel.jpg" alt="Gabinetes" class="w-full h-56 md:h-60 object-cover" onerror="this.src='proyecto-2.jpeg'">
+                    <div class="p-5 md:p-6">
                         <h3 class="font-bold text-slate-900 text-xl">Gabinetes</h3>
-                        <p class="text-slate-600 text-sm mt-2">Diseño moderno L-shape con paneles de cristal azul texturizado, herrajes de acero y cajones extraíbles de alta calidad. Incluye espacio funcional bajo fregadero.</p>
+                        <p class="text-slate-600 text-sm mt-2">Diseño moderno L-shape con paneles de cristal azul texturizado, herrajes de acero y cajones extraíbles de alta calidad.</p>
                     </div>
                 </div>
-                <div class="p-6 pt-0">
-                    <p class="text-lg font-bold text-cyan-600 mb-4">Desde $15,000 DOP por metro lineal</p>
+                <div class="p-5 md:p-6 pt-0">
+                    <p class="text-lg font-bold text-cyan-600 mb-4">Desde $15,000 DOP/m.l.</p>
                     <a href="cotizar.html" class="block text-center bg-cyan-50 hover:bg-cyan-100 text-cyan-700 font-semibold py-2.5 px-4 rounded-lg text-sm transition-colors">
                         Calcular en Cotizador
                     </a>
@@ -213,32 +225,32 @@
             </div>
 
             <!-- Producto 3: Despensa -->
-            <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col justify-between">
+            <div class="snap-center shrink-0 w-[85vw] sm:w-[350px] md:w-auto bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col justify-between">
                 <div>
-                    <img src="Despensa.jpg" alt="Despensa" class="w-full h-60 object-cover" onerror="this.src='proyecto-3.jpeg'">
-                    <div class="p-6">
+                    <img src="Despensa.jpg" alt="Despensa" class="w-full h-56 md:h-60 object-cover" onerror="this.src='proyecto-3.jpeg'">
+                    <div class="p-5 md:p-6">
                         <h3 class="font-bold text-slate-900 text-xl">Despensa</h3>
                         <p class="text-slate-600 text-sm mt-2">Diseño elegante con acabados de alta durabilidad, compartimentos organizadores y cristales decorativos.</p>
                     </div>
                 </div>
-                <div class="p-6 pt-0">
-                    <p class="text-lg font-bold text-cyan-600 mb-4">Desde $8,500 DOP por pieza</p>
+                <div class="p-5 md:p-6 pt-0">
+                    <p class="text-lg font-bold text-cyan-600 mb-4">Desde $8,500 DOP/pieza</p>
                     <a href="cotizar.html" class="block text-center bg-cyan-50 hover:bg-cyan-100 text-cyan-700 font-semibold py-2.5 px-4 rounded-lg text-sm transition-colors">
                         Calcular en Cotizador
                     </a>
                 </div>
             </div>
 
-            <!-- Tarjeta: Puertas -->
-            <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col justify-between">
+            <!-- Producto 4: Puertas -->
+            <div class="snap-center shrink-0 w-[85vw] sm:w-[350px] md:w-auto bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col justify-between">
                 <div>
-                    <img src="puertas-yojansel.jpg" alt="Puertas Alumister" class="w-full h-60 object-cover" onerror="if(!this.dataset.retry){this.dataset.retry=1; this.src='puertas-yojansel.jpeg';} else if(this.dataset.retry==1){this.dataset.retry=2; this.src='puerta01.jpg';}">
-                    <div class="p-6">
+                    <img src="puertas-yojansel.jpg" alt="Puertas Alumister" class="w-full h-56 md:h-60 object-cover" onerror="if(!this.dataset.retry){this.dataset.retry=1; this.src='puertas-yojansel.jpeg';} else if(this.dataset.retry==1){this.dataset.retry=2; this.src='puerta01.jpg';}">
+                    <div class="p-5 md:p-6">
                         <h3 class="font-bold text-slate-900 text-xl">Puertas</h3>
-                        <p class="text-slate-600 text-sm mt-2">Fabricación de puertas residenciales, comerciales y de paso. Variedad en acabados, cerraduras de seguridad y cristales de alta resistencia.</p>
+                        <p class="text-slate-600 text-sm mt-2">Fabricación de puertas residenciales, comerciales y de paso con acabados modernos y herrajes de seguridad.</p>
                     </div>
                 </div>
-                <div class="p-6 pt-0">
+                <div class="p-5 md:p-6 pt-0">
                     <p class="text-lg font-bold text-cyan-600 mb-4">Desde RD$ 8,500</p>
                     <a href="cotizar.html" class="block text-center bg-cyan-50 hover:bg-cyan-100 text-cyan-700 font-semibold py-2.5 px-4 rounded-lg text-sm transition-colors">
                         Calcular en Cotizador
@@ -246,16 +258,16 @@
                 </div>
             </div>
 
-            <!-- Tarjeta: Clósets -->
-            <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col justify-between">
+            <!-- Producto 5: Clósets -->
+            <div class="snap-center shrink-0 w-[85vw] sm:w-[350px] md:w-auto bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col justify-between">
                 <div>
-                    <img src="closets-yojansel.jpg" alt="Clósets Alumister" class="w-full h-60 object-cover" onerror="this.src='closet 01.jpg'">
-                    <div class="p-6">
+                    <img src="closets-yojansel.jpg" alt="Clósets Alumister" class="w-full h-56 md:h-60 object-cover" onerror="this.src='closet 01.jpg'">
+                    <div class="p-5 md:p-6">
                         <h3 class="font-bold text-slate-900 text-xl">Clósets</h3>
-                        <p class="text-slate-600 text-sm mt-2">Frentes e interiores de clóset a la medida. Estructuras resistentes a la humedad, puertas corredizas y acabados elegantes.</p>
+                        <p class="text-slate-600 text-sm mt-2">Frentes e interiores de clóset a la medida. Estructuras resistentes a la humedad y puertas corredizas.</p>
                     </div>
                 </div>
-                <div class="p-6 pt-0">
+                <div class="p-5 md:p-6 pt-0">
                     <p class="text-lg font-bold text-cyan-600 mb-4">Desde RD$ 15,000</p>
                     <a href="cotizar.html" class="block text-center bg-cyan-50 hover:bg-cyan-100 text-cyan-700 font-semibold py-2.5 px-4 rounded-lg text-sm transition-colors">
                         Calcular en Cotizador
@@ -263,39 +275,36 @@
                 </div>
             </div>
 
-            <!-- Tarjeta: Mamparas -->
-            <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col justify-between">
+            <!-- Producto 6: Mamparas -->
+            <div class="snap-center shrink-0 w-[85vw] sm:w-[350px] md:w-auto bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col justify-between">
                 <div>
-                    <img src="mamparas-yojansel.jpg" alt="Mamparas de baño Alumister" class="w-full h-60 object-cover" onerror="if(!this.dataset.retry){this.dataset.retry=1; this.src='mamparas-yojansel.jpeg';} else if(this.dataset.retry==1){this.dataset.retry=2; this.src='mampara-yojansel.jpg';}">
-                    <div class="p-6">
+                    <img src="mamparas-yojansel.jpg" alt="Mamparas de baño Alumister" class="w-full h-56 md:h-60 object-cover" onerror="if(!this.dataset.retry){this.dataset.retry=1; this.src='mamparas-yojansel.jpeg';} else if(this.dataset.retry==1){this.dataset.retry=2; this.src='mampara-yojansel.jpg';}">
+                    <div class="p-5 md:p-6">
                         <h3 class="font-bold text-slate-900 text-xl">Mamparas</h3>
-                        <p class="text-slate-600 text-sm mt-2">Divisiones de baño en cristal templado, herrajes de acero inoxidable y sistemas corredizos o batientes para un acabado higiénico y moderno.</p>
+                        <p class="text-slate-600 text-sm mt-2">Divisiones de baño en cristal templado, herrajes de acero inoxidable y sistemas corredizos o batientes.</p>
                     </div>
                 </div>
-                <div class="p-6 pt-0">
+                <div class="p-5 md:p-6 pt-0">
                     <p class="text-lg font-bold text-cyan-600 mb-4">Desde RD$ 12,500</p>
                     <a href="cotizar.html" class="block text-center bg-cyan-50 hover:bg-cyan-100 text-cyan-700 font-semibold py-2.5 px-4 rounded-lg text-sm transition-colors">
                         Calcular en Cotizador
                     </a>
                 </div>
             </div>
+        </div>
 
-            <!-- Portafolio Completo -->
-            <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col md:col-span-2 lg:col-span-3 bg-gradient-to-r from-cyan-50 via-slate-50 to-blue-50">
-                <div class="p-8 flex flex-col md:flex-row items-center justify-between gap-6">
-                    <div class="flex-1">
-                        <span class="bg-cyan-600 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Portafolio Multimedia</span>
-                        <h3 class="font-extrabold text-slate-900 text-2xl mt-2">Galería Interactiva de Proyectos</h3>
-                        <p class="text-slate-600 text-base mt-2">Explora nuestra galería completa con fotos y videos demostrativos de nuestras instalaciones de ventanas, gabinetes, closets, despensas y mamparas.</p>
-                    </div>
-                    <div class="w-full md:w-auto flex flex-col sm:flex-row gap-3">
-                        <a href="galeria.html" class="block text-center bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3.5 px-8 rounded-xl shadow-md transition-all text-base">
-                            Ver Galería Completa
-                        </a>
-                        <a href="cotizar.html" class="block text-center bg-white border border-slate-300 text-slate-900 hover:bg-slate-100 font-bold py-3.5 px-6 rounded-xl shadow-md transition-all text-base">
-                            <i class="fa-solid fa-calculator text-cyan-600"></i> Cotizador Automático
-                        </a>
-                    </div>
+        <!-- Acceso a Portafolio Completo -->
+        <div class="mt-8 bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-gradient-to-r from-cyan-50 via-slate-50 to-blue-50 p-6 md:p-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="flex-1 text-center md:text-left">
+                    <span class="bg-cyan-600 text-white text-xs font-semibold px-3 py-1 rounded-full uppercase tracking-wider">Portafolio Multimedia</span>
+                    <h3 class="font-extrabold text-slate-900 text-2xl mt-2">Galería Interactiva con Videos</h3>
+                    <p class="text-slate-600 text-sm md:text-base mt-2">Mira fotos en alta resolución y videos demostrativos de nuestras instalaciones reales.</p>
+                </div>
+                <div class="w-full md:w-auto flex flex-col sm:flex-row gap-3">
+                    <a href="galeria.html" class="block text-center bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3.5 px-8 rounded-xl shadow-md transition-all text-base">
+                        Ver Galería Completa
+                    </a>
                 </div>
             </div>
         </div>
@@ -317,20 +326,14 @@
                 <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-md transition-all">
                     <div>
                         <div class="flex text-amber-400 mb-3 text-sm">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                         </div>
                         <p class="text-slate-700 text-sm leading-relaxed mb-4">
                             "Excelente trabajo con la instalación de mis ventanas P-92. Muy puntuales, limpios al trabajar y la calidad del vidrio y aluminio es de primera."
                         </p>
                     </div>
                     <div class="pt-4 border-t border-slate-200 flex items-center gap-3">
-                        <div class="w-10 h-10 bg-cyan-600 text-white font-bold rounded-full flex items-center justify-center text-sm shadow">
-                            RC
-                        </div>
+                        <div class="w-10 h-10 bg-cyan-600 text-white font-bold rounded-full flex items-center justify-center text-sm shadow">RC</div>
                         <div>
                             <h4 class="font-bold text-slate-900 text-sm">Roberto Castillo</h4>
                             <span class="text-xs text-slate-500">Santo Domingo</span>
@@ -342,20 +345,14 @@
                 <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-md transition-all">
                     <div>
                         <div class="flex text-amber-400 mb-3 text-sm">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                         </div>
                         <p class="text-slate-700 text-sm leading-relaxed mb-4">
                             "Diseñaron los gabinetes y la despensa de mi cocina. Quedó súper moderna y elegante. El cotizador de la página web me dio el precio exacto."
                         </p>
                     </div>
                     <div class="pt-4 border-t border-slate-200 flex items-center gap-3">
-                        <div class="w-10 h-10 bg-blue-600 text-white font-bold rounded-full flex items-center justify-center text-sm shadow">
-                            AM
-                        </div>
+                        <div class="w-10 h-10 bg-blue-600 text-white font-bold rounded-full flex items-center justify-center text-sm shadow">AM</div>
                         <div>
                             <h4 class="font-bold text-slate-900 text-sm">Ana María Gómez</h4>
                             <span class="text-xs text-slate-500">Santiago</span>
@@ -367,20 +364,14 @@
                 <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-sm flex flex-col justify-between hover:shadow-md transition-all">
                     <div>
                         <div class="flex text-amber-400 mb-3 text-sm">
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
-                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                         </div>
                         <p class="text-slate-700 text-sm leading-relaxed mb-4">
                             "Compré la mampara de baño en opción 'Sin Montura' para instalarla con mi maestro de obra. Todo vino con las medidas exactas y bien empacado."
                         </p>
                     </div>
                     <div class="pt-4 border-t border-slate-200 flex items-center gap-3">
-                        <div class="w-10 h-10 bg-emerald-600 text-white font-bold rounded-full flex items-center justify-center text-sm shadow">
-                            JL
-                        </div>
+                        <div class="w-10 h-10 bg-emerald-600 text-white font-bold rounded-full flex items-center justify-center text-sm shadow">JL</div>
                         <div>
                             <h4 class="font-bold text-slate-900 text-sm">Ing. José Luis Peña</h4>
                             <span class="text-xs text-slate-500">Distrito Nacional</span>
@@ -389,7 +380,7 @@
                 </div>
             </div>
 
-            <!-- Botón de Acción para que los Clientes Dejen su Opinión -->
+            <!-- Botón de Acción para Dejar Opinión -->
             <div class="mt-10 text-center">
                 <a href="https://wa.me/18099442504?text=Hola,%20soy%20cliente%20de%20Alumister%20y%20me%20gustaría%20dejar%20la%20siguiente%20reseña:%20" 
                    target="_blank" 
@@ -400,7 +391,7 @@
         </div>
     </section>
 
-    <!-- Cotizador Rápido con Frase Personalizada -->
+    <!-- Cotizador Rápido -->
     <section id="cotizador" class="py-16 bg-gradient-to-b from-slate-100 to-white text-slate-900 text-center border-t border-slate-200">
         <div class="max-w-3xl mx-auto px-4">
             <span class="text-xs font-extrabold uppercase tracking-widest text-cyan-700 bg-cyan-100 px-3.5 py-1.5 rounded-full border border-cyan-200 mb-4 inline-block">
@@ -428,16 +419,39 @@
         <p>© 2026 Alumister - Carpintería de Aluminio & Vidrio Arquitectónico. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Botón Flotante de WhatsApp Permanente -->
+    <!-- Botón Flotante de WhatsApp Permanente (Escritorio) -->
     <a href="https://wa.me/18099442504?text=Hola,%20me%20gustaría%20recibir%20más%20información%20sobre%20sus%20trabajos" 
        target="_blank" 
-       class="fixed bottom-6 right-6 z-50 bg-emerald-500 hover:bg-emerald-600 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-3xl transition-all duration-300 hover:scale-110 group"
+       class="hidden md:flex fixed bottom-6 right-6 z-50 bg-emerald-500 hover:bg-emerald-600 text-white w-14 h-14 rounded-full shadow-2xl items-center justify-center text-3xl transition-all duration-300 hover:scale-110 group"
        title="Escríbenos por WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
-        <span class="absolute right-16 bg-slate-900 text-white text-xs font-semibold px-3 py-1.5 rounded-xl shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap border border-slate-700">
-            ¡Escríbenos aquí!
-        </span>
     </a>
+
+    <!-- BARRA DE NAVEGACIÓN INFERIOR FIJA (EXCLUSIVA PARA MÓVILES - ESTILO APP) -->
+    <div class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-lg border-t border-slate-200 py-2 px-3 shadow-2xl flex items-center justify-around text-center">
+        <!-- Cotizar -->
+        <a href="cotizar.html" class="flex flex-col items-center text-cyan-600 font-semibold text-[11px] hover:text-cyan-700">
+            <i class="fa-solid fa-calculator text-lg mb-0.5"></i>
+            <span>Cotizar</span>
+        </a>
+        <!-- Galería -->
+        <a href="galeria.html" class="flex flex-col items-center text-slate-600 font-semibold text-[11px] hover:text-cyan-600">
+            <i class="fa-solid fa-images text-lg mb-0.5"></i>
+            <span>Galería</span>
+        </a>
+        <!-- WhatsApp -->
+        <a href="https://wa.me/18099442504?text=Hola,%20quisiera%20solicitar%20información" target="_blank" class="flex flex-col items-center text-emerald-600 font-bold text-[11px]">
+            <div class="w-10 h-10 bg-emerald-500 text-white rounded-full flex items-center justify-center text-xl shadow-md -mt-4 border-2 border-white">
+                <i class="fa-brands fa-whatsapp"></i>
+            </div>
+            <span class="mt-0.5">WhatsApp</span>
+        </a>
+        <!-- Llamar -->
+        <a href="tel:18099442504" class="flex flex-col items-center text-slate-600 font-semibold text-[11px] hover:text-cyan-600">
+            <i class="fa-solid fa-phone text-lg mb-0.5"></i>
+            <span>Llamar</span>
+        </a>
+    </div>
 
 </body>
 </html>
