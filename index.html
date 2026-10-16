@@ -97,9 +97,17 @@
                     Ingeniería & Diseño en Vidrio <br>
                     <span class="bg-gradient-to-r from-cyan-400 via-blue-400 to-indigo-300 bg-clip-text text-transparent">A Tu Medida</span>
                 </h1>
-                <p class="text-slate-200 text-lg sm:text-xl leading-relaxed mb-8 drop-shadow">
+                <p class="text-slate-200 text-lg sm:text-xl leading-relaxed mb-4 drop-shadow">
                     Especialistas en ventanas, gabinetes, despensas modernas, closets, mamparas para baños y puertas. Elige comprar con instalador profesional o solo fabricación.
                 </p>
+
+                <!-- MEJORA 2: Badge de Cobertura y Tiempos de Entrega -->
+                <div class="flex flex-wrap items-center gap-3 text-xs sm:text-sm text-cyan-300 font-medium mb-8 bg-slate-900/60 backdrop-blur-md p-3 rounded-xl border border-slate-700/60 inline-flex">
+                    <span class="flex items-center gap-1.5"><i class="fa-solid fa-location-dot text-cyan-400"></i> Servicio de instalación en Gran Santo Domingo y zonas aledañas</span>
+                    <span class="hidden sm:inline text-slate-500">|</span>
+                    <span class="flex items-center gap-1.5"><i class="fa-solid fa-truck-fast text-cyan-400"></i> Envíos nacionales en piezas fabricadas</span>
+                </div>
+
                 <div class="flex flex-col sm:flex-row items-start gap-4">
                     <a href="cotizar.html" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-extrabold px-8 py-4 rounded-full shadow-lg transition-all flex items-center justify-center gap-3 text-base">
                         <i class="fa-solid fa-calculator text-xl"></i> Ir al Cotizador Automático
@@ -139,6 +147,7 @@
                             <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyan-600"></i> Medición técnica en tu residencia u obra</li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyan-600"></i> Fabricación con materiales premium</li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-cyan-600"></i> Transporte e instalación profesional garantizada</li>
+                            <li class="flex items-center gap-2 text-xs text-slate-500 bg-slate-50 p-2 rounded-lg border border-slate-100"><i class="fa-solid fa-truck text-cyan-600"></i> Cobertura en Santo Domingo y zonas cercanas</li>
                         </ul>
                     </div>
                     <a href="https://wa.me/18099442504?text=Hola,%20me%20interesa%20un%20trabajo%20CON%20MONTURA" target="_blank" class="w-full text-center bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-3 rounded-xl transition-colors text-sm shadow-md block">
@@ -160,6 +169,7 @@
                             <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-slate-500"></i> Fabricación exacta según tus medidas</li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-slate-500"></i> Ahorras costo de mano de obra e instalación</li>
                             <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-slate-500"></i> Producto empacado y listo para retirar o enviar</li>
+                            <li class="flex items-center gap-2 text-xs text-slate-500 bg-slate-50 p-2 rounded-lg border border-slate-100"><i class="fa-solid fa-plane-departure text-slate-600"></i> Despachos y envíos a todo el país</li>
                         </ul>
                     </div>
                     <a href="https://wa.me/18099442504?text=Hola,%20me%20interesa%20un%20trabajo%20SIN%20MONTURA" target="_blank" class="w-full text-center bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 rounded-xl transition-colors text-sm shadow-md block">
@@ -428,16 +438,26 @@
         <p>© 2026 Alumister - Carpintería de Aluminio & Vidrio Arquitectónico. Todos los derechos reservados.</p>
     </footer>
 
-    <!-- Botón Flotante de WhatsApp Permanente -->
-    <a href="https://wa.me/18099442504?text=Hola,%20me%20gustaría%20recibir%20más%20información%20sobre%20sus%20trabajos" 
-       target="_blank" 
-       class="fixed bottom-6 right-6 z-50 bg-emerald-500 hover:bg-emerald-600 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-3xl transition-all duration-300 hover:scale-110 group"
-       title="Escríbenos por WhatsApp">
-        <i class="fa-brands fa-whatsapp"></i>
-        <span class="absolute right-16 bg-slate-900 text-white text-xs font-semibold px-3 py-1.5 rounded-xl shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap border border-slate-700">
-            ¡Escríbenos aquí!
-        </span>
-    </a>
+    <!-- MEJORA 3: Botón Flotante de WhatsApp Animado con Anillo de Pulso y Punto Verde de Notificación -->
+    <div class="fixed bottom-6 right-6 z-50 flex items-center justify-center">
+        <!-- Anillo de pulso sutil detrás del botón -->
+        <span class="absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75 animate-ping"></span>
+        
+        <a href="https://wa.me/18099442504?text=Hola,%20me%20gustaría%20recibir%20más%20información%20sobre%20sus%20trabajos" 
+           target="_blank" 
+           class="relative bg-emerald-500 hover:bg-emerald-600 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center text-3xl transition-all duration-300 hover:scale-110 group"
+           title="Escríbenos por WhatsApp">
+            <i class="fa-brands fa-whatsapp"></i>
+            
+            <!-- Indicador activo (Punto de Notificación) -->
+            <span class="absolute top-0 right-0 w-3.5 h-3.5 bg-red-500 border-2 border-white rounded-full"></span>
+
+            <!-- Tooltip en hover -->
+            <span class="absolute right-16 bg-slate-900 text-white text-xs font-semibold px-3 py-1.5 rounded-xl shadow-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap border border-slate-700">
+                ¡Escríbenos, respondemos rápido!
+            </span>
+        </a>
+    </div>
 
 </body>
 </html>
