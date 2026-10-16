@@ -27,7 +27,7 @@
     <header class="py-12 px-4 text-center max-w-4xl mx-auto">
         <span class="bg-cyan-100 text-cyan-700 border border-cyan-300 text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider">Portafolio Multimedia</span>
         <h1 class="text-3xl sm:text-5xl font-extrabold mt-4 text-slate-900 tracking-tight">Nuestros Proyectos en Fotos y Video</h1>
-        <p class="text-slate-600 text-base sm:text-lg mt-3">Calidad y precisión garantizadas para todos nuestros clientes en cada instalación de aluminio y vidrio.</p>
+        <p class="text-slate-600 text-base sm:text-lg mt-3">Calidad y precisión garantizadas para todos nuestros clientes en cada instalación de aluminio y vidrio. Toca cualquier foto para ampliarla.</p>
     </header>
 
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-16 flex-1 w-full">
@@ -57,7 +57,7 @@
             </div>
         </section>
 
-        <!-- Sección de Videos de Demostración (Del 1 al 8) -->
+        <!-- Sección de Videos de Demostración -->
         <section>
             <h2 class="text-2xl font-bold text-slate-900 mb-6 border-b border-slate-200 pb-3 flex items-center gap-2">
                 <i class="fa-solid fa-circle-play text-cyan-600"></i> Demostraciones en Video
@@ -115,65 +115,46 @@
                         </a>
                     </div>
                 </div>
-
-                <!-- Video 5 (Sin Audio) -->
-                <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 p-3 shadow-lg shadow-slate-200/50 flex flex-col justify-between hover:shadow-xl transition-all">
-                    <video controls muted preload="metadata" class="w-full h-64 object-cover rounded-xl bg-slate-950">
-                        <source src="video-5.mp4" type="video/mp4">
-                    </video>
-                    <div class="mt-3 flex justify-between items-center text-xs">
-                        <span class="font-bold text-slate-800">Video #5 <span class="text-slate-500 font-normal">(Sin Audio)</span></span>
-                        <a href="https://wa.me/18099442504?text=Hola,%20me%20interesa%20un%20trabajo%20como%20el%20del%20Video%20%235" target="_blank" class="text-cyan-600 hover:text-cyan-700 font-bold flex items-center gap-1">
-                            <i class="fa-brands fa-whatsapp text-sm text-emerald-500"></i> Cotizar
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Video 6 (Sin Audio) -->
-                <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 p-3 shadow-lg shadow-slate-200/50 flex flex-col justify-between hover:shadow-xl transition-all">
-                    <video controls muted preload="metadata" class="w-full h-64 object-cover rounded-xl bg-slate-950">
-                        <source src="video-6.mp4" type="video/mp4">
-                    </video>
-                    <div class="mt-3 flex justify-between items-center text-xs">
-                        <span class="font-bold text-slate-800">Video #6 <span class="text-slate-500 font-normal">(Sin Audio)</span></span>
-                        <a href="https://wa.me/18099442504?text=Hola,%20me%20interesa%20un%20trabajo%20como%20el%20del%20Video%20%236" target="_blank" class="text-cyan-600 hover:text-cyan-700 font-bold flex items-center gap-1">
-                            <i class="fa-brands fa-whatsapp text-sm text-emerald-500"></i> Cotizar
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Video 7 (Sin Audio) -->
-                <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 p-3 shadow-lg shadow-slate-200/50 flex flex-col justify-between hover:shadow-xl transition-all">
-                    <video controls muted preload="metadata" class="w-full h-64 object-cover rounded-xl bg-slate-950">
-                        <source src="video-7.mp4" type="video/mp4">
-                    </video>
-                    <div class="mt-3 flex justify-between items-center text-xs">
-                        <span class="font-bold text-slate-800">Video #7 <span class="text-slate-500 font-normal">(Sin Audio)</span></span>
-                        <a href="https://wa.me/18099442504?text=Hola,%20me%20interesa%20un%20trabajo%20como%20el%20del%20Video%20%237" target="_blank" class="text-cyan-600 hover:text-cyan-700 font-bold flex items-center gap-1">
-                            <i class="fa-brands fa-whatsapp text-sm text-emerald-500"></i> Cotizar
-                        </a>
-                    </div>
-                </div>
-
-                <!-- Video 8 (Sin Audio) -->
-                <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 p-3 shadow-lg shadow-slate-200/50 flex flex-col justify-between hover:shadow-xl transition-all">
-                    <video controls muted preload="metadata" class="w-full h-64 object-cover rounded-xl bg-slate-950">
-                        <source src="video-8.mp4" type="video/mp4">
-                    </video>
-                    <div class="mt-3 flex justify-between items-center text-xs">
-                        <span class="font-bold text-slate-800">Video #8 <span class="text-slate-500 font-normal">(Sin Audio)</span></span>
-                        <a href="https://wa.me/18099442504?text=Hola,%20me%20interesa%20un%20trabajo%20como%20el%20del%20Video%20%238" target="_blank" class="text-cyan-600 hover:text-cyan-700 font-bold flex items-center gap-1">
-                            <i class="fa-brands fa-whatsapp text-sm text-emerald-500"></i> Cotizar
-                        </a>
-                    </div>
-                </div>
             </div>
         </section>
 
     </main>
 
-    <!-- Script Inteligente con la API de GitHub -->
+    <!-- Modal de Vista Previa (Lightbox) para las Fotos -->
+    <div id="image-modal" class="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-md hidden flex flex-col items-center justify-center p-4 transition-all duration-300 select-none">
+        
+        <!-- Botón Cerrar (X) -->
+        <button onclick="closeModal()" class="absolute top-4 right-4 sm:top-6 sm:right-6 text-slate-400 hover:text-white bg-slate-900/80 hover:bg-red-600/80 w-12 h-12 rounded-full flex items-center justify-center text-2xl font-bold transition-all border border-slate-800 z-50 shadow-lg cursor-pointer">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <!-- Botón Anterior (<) -->
+        <button onclick="prevImage()" class="absolute left-2 sm:left-6 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-cyan-600 text-white w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center text-xl sm:text-2xl transition-all shadow-xl border border-slate-800 z-50 cursor-pointer">
+            <i class="fa-solid fa-chevron-left"></i>
+        </button>
+
+        <!-- Imagen Ampliada y Título -->
+        <div class="relative max-w-5xl w-full max-h-[80vh] flex flex-col items-center justify-center p-2">
+            <img id="modal-img" src="" alt="Vista previa ampliada" class="max-w-full max-h-[70vh] sm:max-h-[75vh] object-contain rounded-2xl shadow-2xl border border-slate-800/80">
+            <div id="modal-caption" class="text-slate-200 text-sm sm:text-base font-semibold mt-4 text-center bg-slate-900/90 px-6 py-2.5 rounded-xl border border-slate-800 max-w-lg shadow-lg"></div>
+        </div>
+
+        <!-- Botón Siguiente (>) -->
+        <button onclick="nextImage()" class="absolute right-2 sm:right-6 top-1/2 -translate-y-1/2 bg-slate-900/80 hover:bg-cyan-600 text-white w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center text-xl sm:text-2xl transition-all shadow-xl border border-slate-800 z-50 cursor-pointer">
+            <i class="fa-solid fa-chevron-right"></i>
+        </button>
+
+        <!-- Contador de fotos -->
+        <div id="modal-counter" class="absolute bottom-4 text-slate-400 text-xs font-mono tracking-widest bg-slate-900/80 px-3 py-1 rounded-full border border-slate-800">
+            1 / 1
+        </div>
+    </div>
+
+    <!-- Script Inteligente con la API de GitHub y Lightbox -->
     <script>
+        let galleryImages = [];
+        let currentImageIndex = 0;
+
         async function cargarProyectosGitHub() {
             const usuario = "Alumister"; 
             const repositorio = "Mi-pagina-"; 
@@ -187,7 +168,6 @@
                 const container = document.getElementById('galeria-grid');
                 container.innerHTML = ""; 
 
-                // Filtro actualizado para detectar .jpg, .jpeg y .png automáticamente
                 let fotosProyectos = files.filter(file => {
                     const nombreLower = file.name.toLowerCase();
                     return nombreLower.startsWith('proyecto-') && 
@@ -205,6 +185,12 @@
                     return;
                 }
 
+                // Guardar las imágenes para el Lightbox
+                galleryImages = fotosProyectos.map((file, index) => ({
+                    src: file.name,
+                    alt: `Proyecto #${index + 1} - Alumister`
+                }));
+
                 fotosProyectos.forEach((file, index) => {
                     const numeroProyecto = index + 1;
                     
@@ -217,9 +203,14 @@
                     card.setAttribute('data-grupo', grupo);
 
                     card.innerHTML = `
-                        <div class="relative overflow-hidden aspect-square bg-slate-100">
+                        <div class="relative overflow-hidden aspect-square bg-slate-100 cursor-pointer" onclick="openModal(${index})">
                             <img src="${file.name}" alt="Proyecto ${numeroProyecto} - Alumister" loading="lazy" 
                                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                            <div class="absolute inset-0 bg-slate-900/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                                <span class="bg-white/90 text-slate-900 font-bold px-3 py-1.5 rounded-full text-xs shadow-lg flex items-center gap-1.5">
+                                    <i class="fa-solid fa-magnifying-glass-plus text-cyan-600"></i> Ver
+                                </span>
+                            </div>
                         </div>
                         <div class="p-3 bg-white flex justify-between items-center text-xs border-t border-slate-100">
                             <span class="font-bold text-slate-800">Proyecto #${numeroProyecto}</span>
@@ -238,6 +229,61 @@
                 `;
             }
         }
+
+        // Lógica del Lightbox (Visor de Fotos)
+        function openModal(index) {
+            currentImageIndex = index;
+            const modal = document.getElementById('image-modal');
+            updateModalContent();
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Bloquear scroll de fondo
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('image-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Restaurar scroll
+        }
+
+        function nextImage() {
+            if (galleryImages.length === 0) return;
+            currentImageIndex = (currentImageIndex + 1) % galleryImages.length;
+            updateModalContent();
+        }
+
+        function prevImage() {
+            if (galleryImages.length === 0) return;
+            currentImageIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+            updateModalContent();
+        }
+
+        function updateModalContent() {
+            if (galleryImages.length === 0) return;
+            const modalImg = document.getElementById('modal-img');
+            const modalCaption = document.getElementById('modal-caption');
+            const modalCounter = document.getElementById('modal-counter');
+
+            modalImg.src = galleryImages[currentImageIndex].src;
+            modalCaption.textContent = galleryImages[currentImageIndex].alt;
+            modalCounter.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
+        }
+
+        // Navegación con teclado (Escape y flechas)
+        document.addEventListener('keydown', (e) => {
+            const modal = document.getElementById('image-modal');
+            if (!modal.classList.contains('hidden')) {
+                if (e.key === 'Escape') closeModal();
+                if (e.key === 'ArrowRight') nextImage();
+                if (e.key === 'ArrowLeft') prevImage();
+            }
+        });
+
+        // Cerrar al hacer clic fuera de la imagen en el fondo oscuro
+        document.getElementById('image-modal').addEventListener('click', (e) => {
+            if (e.target.id === 'image-modal') {
+                closeModal();
+            }
+        });
 
         function filtrarGaleria(tipo) {
             const tarjetas = document.querySelectorAll('.proyecto-card');
