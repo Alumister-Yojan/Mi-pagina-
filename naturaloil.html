@@ -86,3 +86,522 @@
                     <i class="fa-solid fa-bars" id="mobileMenuIcon"></i>
                 </button>
             </div>
+        </div>
+
+        <!-- Menú Desplegable Móvil -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-[#faf8f5] border-b border-stone-200 px-6 py-6 shadow-xl space-y-4 text-base">
+            <a href="#valores" onclick="toggleMobileMenu()" class="block text-stone-700 hover:text-brand-600 py-1">Valores</a>
+            <a href="#productos" onclick="toggleMobileMenu()" class="block text-stone-700 hover:text-brand-600 py-1">Nuestros Aceites</a>
+            <a href="#soluciones" onclick="toggleMobileMenu()" class="block text-stone-700 hover:text-brand-600 py-1">Problemas que Resolvemos</a>
+            <a href="#instrucciones" onclick="toggleMobileMenu()" class="block text-stone-700 hover:text-brand-600 py-1">Modo de Uso</a>
+            <a href="#combos" onclick="toggleMobileMenu()" class="block font-bold text-amberbrand-600 py-1">Kits & Combos</a>
+            <a href="#envios" onclick="toggleMobileMenu()" class="block text-stone-700 hover:text-brand-600 py-1">Envíos & Pagos</a>
+            <a href="index.html" class="block font-bold text-slate-800 py-1">🏗️ Ir a Alumister</a>
+            <div class="pt-4">
+                <a href="https://wa.me/18090000000" target="_blank" class="w-full text-center bg-brand-600 text-white font-bold py-3 rounded-full block text-sm">
+                    <i class="fa-brands fa-whatsapp mr-2"></i> Pedir por WhatsApp
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative py-20 lg:py-28 overflow-hidden bg-stone-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold bg-brand-100 text-brand-800 mb-6">
+                        <i class="fa-solid fa-seedling"></i> 100% Puros, Prensa en Frío & Libres de Químicos
+                    </span>
+                    <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl text-brand-900 font-bold leading-tight mb-6">
+                        El secreto de la naturaleza para tu <span class="italic font-normal text-brand-600">piel y cabello</span>.
+                    </h1>
+                    <p class="text-stone-600 text-base sm:text-lg leading-relaxed mb-8 max-w-xl">
+                        En <strong>Natural Oil</strong> elaboramos elixires botánicos sin refinar, parabenos ni fragancias sintéticas. Nutrición directa para regenerar, hidratar y fortalecer.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="#productos" class="bg-brand-600 hover:bg-brand-700 text-white font-bold px-8 py-4 rounded-full shadow-md text-center text-sm transition-all">
+                            Explorar Aceites
+                        </a>
+                        <a href="#combos" class="bg-amber-100 border border-amber-300 text-amber-900 hover:bg-amber-200 font-bold px-8 py-4 rounded-full text-center text-sm transition-all">
+                            Ver Kits en Oferta ⭐
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Imagen Principal -->
+                <div class="relative">
+                    <div class="aspect-square rounded-3xl overflow-hidden shadow-2xl bg-stone-200 border-4 border-white">
+                        <img src="https://images.unsplash.com/photo-1608248597263-0007823528f8?q=80&w=1000&auto=format&fit=crop" alt="Natural Oil Botellas" class="w-full h-full object-cover">
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 bg-white p-5 rounded-2xl shadow-xl border border-stone-100 hidden sm:block max-w-xs">
+                        <div class="flex items-center gap-3 mb-2">
+                            <div class="w-8 h-8 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs">✓</div>
+                            <h4 class="font-bold text-stone-900 text-xs">Calidad Garantizada</h4>
+                        </div>
+                        <p class="text-stone-500 text-xs">Envases de vidrio ámbar que protegen las propiedades activas de la luz solar.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Valores de Marca -->
+    <section id="valores" class="py-16 bg-white border-y border-stone-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="font-serif text-3xl font-bold text-brand-900">Nuestros Valores Puros</h2>
+                <p class="text-stone-500 text-sm mt-2">La filosofía detrás de cada gota de Natural Oil.</p>
+            </div>
+            <div class="grid md:grid-cols-4 gap-8 text-center">
+                <div class="p-6 rounded-2xl bg-[#faf8f5]">
+                    <div class="w-12 h-12 bg-brand-100 text-brand-700 rounded-full flex items-center justify-center mx-auto mb-4 text-xl">
+                        <i class="fa-solid fa-droplet"></i>
+                    </div>
+                    <h3 class="font-bold text-stone-900 mb-2">Prensa en Frío</h3>
+                    <p class="text-stone-500 text-xs leading-relaxed">Conservamos el 100% de los nutrientes, vitaminas y ácidos grasos esenciales.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-[#faf8f5]">
+                    <div class="w-12 h-12 bg-brand-100 text-brand-700 rounded-full flex items-center justify-center mx-auto mb-4 text-xl">
+                        <i class="fa-solid fa-ban"></i>
+                    </div>
+                    <h3 class="font-bold text-stone-900 mb-2">Sin Químicos ni Rellenos</h3>
+                    <p class="text-stone-500 text-xs leading-relaxed">Libre de aceite mineral, siliconas, parabenos y aromas artificiales.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-[#faf8f5]">
+                    <div class="w-12 h-12 bg-brand-100 text-brand-700 rounded-full flex items-center justify-center mx-auto mb-4 text-xl">
+                        <i class="fa-solid fa-paw"></i>
+                    </div>
+                    <h3 class="font-bold text-stone-900 mb-2">Cruelty Free</h3>
+                    <p class="text-stone-500 text-xs leading-relaxed">Respeto absoluto por los animales. Jamás testeamos en ellos.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-[#faf8f5]">
+                    <div class="w-12 h-12 bg-brand-100 text-brand-700 rounded-full flex items-center justify-center mx-auto mb-4 text-xl">
+                        <i class="fa-solid fa-recycle"></i>
+                    </div>
+                    <h3 class="font-bold text-stone-900 mb-2">Empaque Consciente</h3>
+                    <p class="text-stone-500 text-xs leading-relaxed">Frascos de vidrio reciclable de alta durabilidad y protección UV.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catálogo de Productos Completo (13 Aceites) -->
+    <section id="productos" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+            <span class="text-xs font-bold uppercase tracking-widest text-brand-600">Catálogo Completo</span>
+            <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-900 mt-2">Nuestros 13 Aceites Botánicos</h2>
+            <p class="text-stone-500 text-sm mt-2">Selecciona la presentación ideal para ti: 30ml, 60ml o 100ml.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <!-- 1. Aceite de Ricino -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div>
+                    <div class="aspect-[4/3] bg-stone-100 relative">
+                        <img src="https://images.unsplash.com/photo-1608248597263-0007823528f8?q=80&w=600&auto=format&fit=crop" alt="Aceite de Ricino" class="w-full h-full object-cover">
+                        <span class="absolute top-3 right-3 bg-brand-900 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Crecimiento</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif font-bold text-stone-900 text-xl">Aceite de Ricino</h3>
+                        <p class="text-stone-500 text-xs leading-relaxed mt-2">Estimula folículos capilares, engrosa pestañas, cejas y restaura puntas abiertas.</p>
+                        <div class="mt-4 flex flex-wrap gap-1.5">
+                            <span class="bg-stone-100 text-stone-600 text-[10px] px-2 py-0.5 rounded-md font-medium">Cabello</span>
+                            <span class="bg-stone-100 text-stone-600 text-[10px] px-2 py-0.5 rounded-md font-medium">Pestañas & Cejas</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0 border-t border-stone-100 mt-4">
+                    <div class="flex justify-between items-center text-xs text-stone-600 mb-3">
+                        <span>30ml: <strong>RD$ 350</strong></span>
+                        <span>60ml: <strong>RD$ 600</strong></span>
+                        <span>100ml: <strong>RD$ 950</strong></span>
+                    </div>
+                    <a href="https://wa.me/18090000000?text=Hola,%20quisiera%20pedir%20Aceite%20de%20Ricino" target="_blank" class="block text-center bg-brand-50 hover:bg-brand-100 text-brand-800 font-bold py-2.5 rounded-xl text-xs transition-colors">
+                        Pedir por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- 2. Aceite de Romero -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div>
+                    <div class="aspect-[4/3] bg-stone-100 relative">
+                        <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=600&auto=format&fit=crop" alt="Aceite de Romero" class="w-full h-full object-cover">
+                        <span class="absolute top-3 right-3 bg-brand-900 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Anti-Caída</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif font-bold text-stone-900 text-xl">Aceite de Romero</h3>
+                        <p class="text-stone-500 text-xs leading-relaxed mt-2">Activa la circulación del cuero cabelludo, combate la caída y previene la caspa.</p>
+                        <div class="mt-4 flex flex-wrap gap-1.5">
+                            <span class="bg-stone-100 text-stone-600 text-[10px] px-2 py-0.5 rounded-md font-medium">Cabello</span>
+                            <span class="bg-stone-100 text-stone-600 text-[10px] px-2 py-0.5 rounded-md font-medium">Cuero Cabelludo</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0 border-t border-stone-100 mt-4">
+                    <div class="flex justify-between items-center text-xs text-stone-600 mb-3">
+                        <span>30ml: <strong>RD$ 400</strong></span>
+                        <span>60ml: <strong>RD$ 700</strong></span>
+                        <span>100ml: <strong>RD$ 1,100</strong></span>
+                    </div>
+                    <a href="https://wa.me/18090000000?text=Hola,%20quisiera%20pedir%20Aceite%20de%20Romero" target="_blank" class="block text-center bg-brand-50 hover:bg-brand-100 text-brand-800 font-bold py-2.5 rounded-xl text-xs transition-colors">
+                        Pedir por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- 3. Aceite de Linaza -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div>
+                    <div class="aspect-[4/3] bg-stone-100 relative">
+                        <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=600&auto=format&fit=crop" alt="Aceite de Linaza" class="w-full h-full object-cover">
+                        <span class="absolute top-3 right-3 bg-brand-900 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Hidratación</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif font-bold text-stone-900 text-xl">Aceite de Linaza</h3>
+                        <p class="text-stone-500 text-xs leading-relaxed mt-2">Rico en Omega-3. Hidrata intensamente, define rizos y regenera la piel seca.</p>
+                        <div class="mt-4 flex flex-wrap gap-1.5">
+                            <span class="bg-stone-100 text-stone-600 text-[10px] px-2 py-0.5 rounded-md font-medium">Rostro</span>
+                            <span class="bg-stone-100 text-stone-600 text-[10px] px-2 py-0.5 rounded-md font-medium">Cabello Rizado</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0 border-t border-stone-100 mt-4">
+                    <div class="flex justify-between items-center text-xs text-stone-600 mb-3">
+                        <span>30ml: <strong>RD$ 300</strong></span>
+                        <span>60ml: <strong>RD$ 500</strong></span>
+                        <span>100ml: <strong>RD$ 800</strong></span>
+                    </div>
+                    <a href="https://wa.me/18090000000?text=Hola,%20quisiera%20pedir%20Aceite%20de%20Linaza" target="_blank" class="block text-center bg-brand-50 hover:bg-brand-100 text-brand-800 font-bold py-2.5 rounded-xl text-xs transition-colors">
+                        Pedir por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- 4. Aceite de Coco Virgen -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div>
+                    <div class="aspect-[4/3] bg-stone-100 relative">
+                        <img src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?q=80&w=600&auto=format&fit=crop" alt="Aceite de Coco" class="w-full h-full object-cover">
+                        <span class="absolute top-3 right-3 bg-brand-900 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Multiuso</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif font-bold text-stone-900 text-xl">Aceite de Coco Virgen</h3>
+                        <p class="text-stone-500 text-xs leading-relaxed mt-2">Nutrición profunda, antibacteriano. Desmaquillante natural y mascarilla capilar.</p>
+                        <div class="mt-4 flex flex-wrap gap-1.5">
+                            <span class="bg-stone-100 text-stone-600 text-[10px] px-2 py-0.5 rounded-md font-medium">Rostro</span>
+                            <span class="bg-stone-100 text-stone-600 text-[10px] px-2 py-0.5 rounded-md font-medium">Cabello</span>
+                            <span class="bg-stone-100 text-stone-600 text-[10px] px-2 py-0.5 rounded-md font-medium">Cuerpo</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0 border-t border-stone-100 mt-4">
+                    <div class="flex justify-between items-center text-xs text-stone-600 mb-3">
+                        <span>30ml: <strong>RD$ 250</strong></span>
+                        <span>60ml: <strong>RD$ 450</strong></span>
+                        <span>100ml: <strong>RD$ 700</strong></span>
+                    </div>
+                    <a href="https://wa.me/18090000000?text=Hola,%20quisiera%20pedir%20Aceite%20de%20Coco" target="_blank" class="block text-center bg-brand-50 hover:bg-brand-100 text-brand-800 font-bold py-2.5 rounded-xl text-xs transition-colors">
+                        Pedir por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- 5. Aceite de Almendras Dulces -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div>
+                    <div class="aspect-[4/3] bg-stone-100 relative">
+                        <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?q=80&w=600&auto=format&fit=crop" alt="Aceite de Almendras" class="w-full h-full object-cover">
+                        <span class="absolute top-3 right-3 bg-brand-900 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Piel Sensible</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif font-bold text-stone-900 text-xl">Aceite de Almendras Dulces</h3>
+                        <p class="text-stone-500 text-xs leading-relaxed mt-2">Emoliente suave. Atenúa estrías, aclara ojeras y suaviza piel sensible.</p>
+                        <div class="mt-4 flex flex-wrap gap-1.5">
+                            <span class="bg-stone-100 text-stone-600 text-[10px] px-2 py-0.5 rounded-md font-medium">Rostro</span>
+                            <span class="bg-stone-100 text-stone-600 text-[10px] px-2 py-0.5 rounded-md font-medium">Masajes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0 border-t border-stone-100 mt-4">
+                    <div class="flex justify-between items-center text-xs text-stone-600 mb-3">
+                        <span>30ml: <strong>RD$ 300</strong></span>
+                        <span>60ml: <strong>RD$ 550</strong></span>
+                        <span>100ml: <strong>RD$ 850</strong></span>
+                    </div>
+                    <a href="https://wa.me/18090000000?text=Hola,%20quisiera%20pedir%20Aceite%20de%20Almendras" target="_blank" class="block text-center bg-brand-50 hover:bg-brand-100 text-brand-800 font-bold py-2.5 rounded-xl text-xs transition-colors">
+                        Pedir por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- 6. Aceite de Menta Piperita -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div>
+                    <div class="aspect-[4/3] bg-stone-100 relative">
+                        <img src="https://images.unsplash.com/photo-1608248597263-0007823528f8?q=80&w=600&auto=format&fit=crop" alt="Aceite de Menta" class="w-full h-full object-cover">
+                        <span class="absolute top-3 right-3 bg-brand-900 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Estimulante</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif font-bold text-stone-900 text-xl">Aceite de Menta Piperita</h3>
+                        <p class="text-stone-500 text-xs leading-relaxed mt-2">Sensación refrescante, estimula el cuero cabelludo y alivia tensión muscular.</p>
+                        <div class="mt-4 flex flex-wrap gap-1.5">
+                            <span class="bg-stone-100 text-stone-600 text-[10px] px-2 py-0.5 rounded-md font-medium">Cabello</span>
+                            <span class="bg-stone-100 text-stone-600 text-[10px] px-2 py-0.5 rounded-md font-medium">Masajes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0 border-t border-stone-100 mt-4">
+                    <div class="flex justify-between items-center text-xs text-stone-600 mb-3">
+                        <span>30ml: <strong>RD$ 350</strong></span>
+                        <span>60ml: <strong>RD$ 600</strong></span>
+                        <span>100ml: <strong>RD$ 950</strong></span>
+                    </div>
+                    <a href="https://wa.me/18090000000?text=Hola,%20quisiera%20pedir%20Aceite%20de%20Menta" target="_blank" class="block text-center bg-brand-50 hover:bg-brand-100 text-brand-800 font-bold py-2.5 rounded-xl text-xs transition-colors">
+                        Pedir por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- 7. Aceite de Semilla de Girasol -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div>
+                    <div class="aspect-[4/3] bg-stone-100 relative">
+                        <img src="https://images.unsplash.com/photo-1597848212624-a19eb35e2651?q=80&w=600&auto=format&fit=crop" alt="Aceite de Girasol" class="w-full h-full object-cover">
+                        <span class="absolute top-3 right-3 bg-brand-900 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Vitamina E</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif font-bold text-stone-900 text-xl">Aceite Semilla de Girasol</h3>
+                        <p class="text-stone-500 text-xs leading-relaxed mt-2">Alto en Vitamina E. Refuerza la barrera cutánea sin obstruir los poros.</p>
+                        <div class="mt-4 flex flex-wrap gap-1.5">
+                            <span class="bg-stone-100 text-stone-600 text-[10px] px-2 py-0.5 rounded-md font-medium">Rostro</span>
+                            <span class="bg-stone-100 text-stone-600 text-[10px] px-2 py-0.5 rounded-md font-medium">Cuerpo</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0 border-t border-stone-100 mt-4">
+                    <div class="flex justify-between items-center text-xs text-stone-600 mb-3">
+                        <span>30ml: <strong>RD$ 250</strong></span>
+                        <span>60ml: <strong>RD$ 400</strong></span>
+                        <span>100ml: <strong>RD$ 650</strong></span>
+                    </div>
+                    <a href="https://wa.me/18090000000?text=Hola,%20quisiera%20pedir%20Aceite%20de%20Girasol" target="_blank" class="block text-center bg-brand-50 hover:bg-brand-100 text-brand-800 font-bold py-2.5 rounded-xl text-xs transition-colors">
+                        Pedir por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- 8. Aceite de Maní -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div>
+                    <div class="aspect-[4/3] bg-stone-100 relative">
+                        <img src="https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?q=80&w=600&auto=format&fit=crop" alt="Aceite de Maní" class="w-full h-full object-cover">
+                        <span class="absolute top-3 right-3 bg-brand-900 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Piel Seca</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif font-bold text-stone-900 text-xl">Aceite de Maní</h3>
+                        <p class="text-stone-500 text-xs leading-relaxed mt-2">Ultra nutritivo para áreas muy resecas como codos, rodillas y talones.</p>
+                        <div class="mt-4 flex flex-wrap gap-1.5">
+                            <span class="bg-stone-100 text-stone-600 text-[10px] px-2 py-0.5 rounded-md font-medium">Cuerpo</span>
+                            <span class="bg-stone-100 text-stone-600 text-[10px] px-2 py-0.5 rounded-md font-medium">Masajes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0 border-t border-stone-100 mt-4">
+                    <div class="flex justify-between items-center text-xs text-stone-600 mb-3">
+                        <span>30ml: <strong>RD$ 250</strong></span>
+                        <span>60ml: <strong>RD$ 400</strong></span>
+                        <span>100ml: <strong>RD$ 650</strong></span>
+                    </div>
+                    <a href="https://wa.me/18090000000?text=Hola,%20quisiera%20pedir%20Aceite%20de%20Mani" target="_blank" class="block text-center bg-brand-50 hover:bg-brand-100 text-brand-800 font-bold py-2.5 rounded-xl text-xs transition-colors">
+                        Pedir por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- 9. Aceite de Ajonjolí (Sésamo) -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div>
+                    <div class="aspect-[4/3] bg-stone-100 relative">
+                        <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=600&auto=format&fit=crop" alt="Aceite de Ajonjoli" class="w-full h-full object-cover">
+                        <span class="absolute top-3 right-3 bg-brand-900 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Antioxidante</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif font-bold text-stone-900 text-xl">Aceite de Ajonjolí (Sésamo)</h3>
+                        <p class="text-stone-500 text-xs leading-relaxed mt-2">Desintoxica la piel, aporta elasticidad y protege contra agresiones ambientales.</p>
+                        <div class="mt-4 flex flex-wrap gap-1.5">
+                            <span class="bg-stone-100 text-stone-600 text-[10px] px-2 py-0.5 rounded-md font-medium">Rostro</span>
+                            <span class="bg-stone-100 text-stone-600 text-[10px] px-2 py-0.5 rounded-md font-medium">Cabello</span>
+                            <span class="bg-stone-100 text-stone-600 text-[10px] px-2 py-0.5 rounded-md font-medium">Masajes</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0 border-t border-stone-100 mt-4">
+                    <div class="flex justify-between items-center text-xs text-stone-600 mb-3">
+                        <span>30ml: <strong>RD$ 280</strong></span>
+                        <span>60ml: <strong>RD$ 480</strong></span>
+                        <span>100ml: <strong>RD$ 750</strong></span>
+                    </div>
+                    <a href="https://wa.me/18090000000?text=Hola,%20quisiera%20pedir%20Aceite%20de%20Ajonjoli" target="_blank" class="block text-center bg-brand-50 hover:bg-brand-100 text-brand-800 font-bold py-2.5 rounded-xl text-xs transition-colors">
+                        Pedir por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- 10. Aceite de Semilla de Auyama -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div>
+                    <div class="aspect-[4/3] bg-stone-100 relative">
+                        <img src="https://images.unsplash.com/photo-1508747703725-719777637510?q=80&w=600&auto=format&fit=crop" alt="Aceite de Semilla de Auyama" class="w-full h-full object-cover">
+                        <span class="absolute top-3 right-3 bg-brand-900 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Rico en Zinc</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif font-bold text-stone-900 text-xl">Aceite Semilla de Auyama</h3>
+                        <p class="text-stone-500 text-xs leading-relaxed mt-2">Equilibra el sebo facial, regula grasitud y fortalece la raíz capilar.</p>
+                        <div class="mt-4 flex flex-wrap gap-1.5">
+                            <span class="bg-stone-100 text-stone-600 text-[10px] px-2 py-0.5 rounded-md font-medium">Rostro Mixto/Graso</span>
+                            <span class="bg-stone-100 text-stone-600 text-[10px] px-2 py-0.5 rounded-md font-medium">Cabello</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0 border-t border-stone-100 mt-4">
+                    <div class="flex justify-between items-center text-xs text-stone-600 mb-3">
+                        <span>30ml: <strong>RD$ 350</strong></span>
+                        <span>60ml: <strong>RD$ 600</strong></span>
+                        <span>100ml: <strong>RD$ 950</strong></span>
+                    </div>
+                    <a href="https://wa.me/18090000000?text=Hola,%20quisiera%20pedir%20Aceite%20de%20Semilla%20de%20Auyama" target="_blank" class="block text-center bg-brand-50 hover:bg-brand-100 text-brand-800 font-bold py-2.5 rounded-xl text-xs transition-colors">
+                        Pedir por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- 11. Aceite de Chía -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div>
+                    <div class="aspect-[4/3] bg-stone-100 relative">
+                        <img src="https://images.unsplash.com/photo-1608248597263-0007823528f8?q=80&w=600&auto=format&fit=crop" alt="Aceite de Chia" class="w-full h-full object-cover">
+                        <span class="absolute top-3 right-3 bg-brand-900 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Ultra Reparador</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif font-bold text-stone-900 text-xl">Aceite de Chía</h3>
+                        <p class="text-stone-500 text-xs leading-relaxed mt-2">Concentrado de Omega-3/6. Calma la irritación facial y devuelve el brillo perdido.</p>
+                        <div class="mt-4 flex flex-wrap gap-1.5">
+                            <span class="bg-stone-100 text-stone-600 text-[10px] px-2 py-0.5 rounded-md font-medium">Rostro Anti-Age</span>
+                            <span class="bg-stone-100 text-stone-600 text-[10px] px-2 py-0.5 rounded-md font-medium">Cabello</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0 border-t border-stone-100 mt-4">
+                    <div class="flex justify-between items-center text-xs text-stone-600 mb-3">
+                        <span>30ml: <strong>RD$ 380</strong></span>
+                        <span>60ml: <strong>RD$ 650</strong></span>
+                        <span>100ml: <strong>RD$ 1,000</strong></span>
+                    </div>
+                    <a href="https://wa.me/18090000000?text=Hola,%20quisiera%20pedir%20Aceite%20de%20Chia" target="_blank" class="block text-center bg-brand-50 hover:bg-brand-100 text-brand-800 font-bold py-2.5 rounded-xl text-xs transition-colors">
+                        Pedir por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- 12. Aceite de Orégano -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div>
+                    <div class="aspect-[4/3] bg-stone-100 relative">
+                        <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=600&auto=format&fit=crop" alt="Aceite de Oregano" class="w-full h-full object-cover">
+                        <span class="absolute top-3 right-3 bg-brand-900 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Purificante</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif font-bold text-stone-900 text-xl">Aceite de Orégano</h3>
+                        <p class="text-stone-500 text-xs leading-relaxed mt-2">Potente antimicrobiano natural. Ayuda a tratar acné rebelde y afecciones cutáneas.</p>
+                        <div class="mt-4 flex flex-wrap gap-1.5">
+                            <span class="bg-stone-100 text-stone-600 text-[10px] px-2 py-0.5 rounded-md font-medium">Acné Localizado</span>
+                            <span class="bg-stone-100 text-stone-600 text-[10px] px-2 py-0.5 rounded-md font-medium">Purificante</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0 border-t border-stone-100 mt-4">
+                    <div class="flex justify-between items-center text-xs text-stone-600 mb-3">
+                        <span>30ml: <strong>RD$ 400</strong></span>
+                        <span>60ml: <strong>RD$ 700</strong></span>
+                        <span>100ml: <strong>RD$ 1,100</strong></span>
+                    </div>
+                    <a href="https://wa.me/18090000000?text=Hola,%20quisiera%20pedir%20Aceite%20de%20Oregano" target="_blank" class="block text-center bg-brand-50 hover:bg-brand-100 text-brand-800 font-bold py-2.5 rounded-xl text-xs transition-colors">
+                        Pedir por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+            <!-- 13. Aceite de Clavo Dulce -->
+            <div class="bg-white rounded-2xl overflow-hidden border border-stone-200 shadow-sm hover:shadow-md transition-all flex flex-col justify-between">
+                <div>
+                    <div class="aspect-[4/3] bg-stone-100 relative">
+                        <img src="https://images.unsplash.com/photo-1540420773420-3366772f4999?q=80&w=600&auto=format&fit=crop" alt="Aceite de Clavo Dulce" class="w-full h-full object-cover">
+                        <span class="absolute top-3 right-3 bg-brand-900 text-white text-[10px] font-bold px-2.5 py-1 rounded-full uppercase">Revitalizante</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="font-serif font-bold text-stone-900 text-xl">Aceite de Clavo Dulce</h3>
+                        <p class="text-stone-500 text-xs leading-relaxed mt-2">Estimulante capilar potente y aliviador térmico ideal para masajes musculares.</p>
+                        <div class="mt-4 flex flex-wrap gap-1.5">
+                            <span class="bg-stone-100 text-stone-600 text-[10px] px-2 py-0.5 rounded-md font-medium">Cabello</span>
+                            <span class="bg-stone-100 text-stone-600 text-[10px] px-2 py-0.5 rounded-md font-medium">Masajes Musculares</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-6 pt-0 border-t border-stone-100 mt-4">
+                    <div class="flex justify-between items-center text-xs text-stone-600 mb-3">
+                        <span>30ml: <strong>RD$ 350</strong></span>
+                        <span>60ml: <strong>RD$ 600</strong></span>
+                        <span>100ml: <strong>RD$ 950</strong></span>
+                    </div>
+                    <a href="https://wa.me/18090000000?text=Hola,%20quisiera%20pedir%20Aceite%20de%20Clavo%20Dulce" target="_blank" class="block text-center bg-brand-50 hover:bg-brand-100 text-brand-800 font-bold py-2.5 rounded-xl text-xs transition-colors">
+                        Pedir por WhatsApp
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Sección ¿Qué Problema Resuelves? -->
+    <section id="soluciones" class="py-20 bg-stone-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-600">Diagnóstico Rápido</span>
+                <h2 class="font-serif text-3xl font-bold text-brand-900 mt-2">¿Qué necesita tu piel o cabello hoy?</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Tarjeta 1 -->
+                <div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-sm">
+                    <div class="w-10 h-10 bg-amber-100 text-amber-800 rounded-full flex items-center justify-center font-bold text-lg mb-4">1</div>
+                    <h3 class="font-serif font-bold text-xl text-brand-900 mb-3">Caída & Poco Crecimiento</h3>
+                    <p class="text-stone-500 text-xs leading-relaxed mb-4">Si notas pérdida de volumen, hebras débiles o entradas despobladas.</p>
+                    <p class="text-xs font-bold text-brand-700">Aceites recomendados:</p>
+                    <ul class="text-xs text-stone-600 mt-2 space-y-1">
+                        <li>• Aceite de Ricino</li>
+                        <li>• Aceite de Romero</li>
+                        <li>• Aceite de Menta</li>
+                        <li>• Aceite de Clavo Dulce</li>
+                    </ul>
+                </div>
+
+                <!-- Tarjeta 2 -->
+                <div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-sm">
+                    <div class="w-10 h-10 bg-emerald-100 text-emerald-800 rounded-full flex items-center justify-center font-bold text-lg mb-4">2</div>
+                    <h3 class="font-serif font-bold text-xl text-brand-900 mb-3">Piel Seca, Opaca u Ojeras</h3>
+                    <p class="text-stone-500 text-xs leading-relaxed mb-4">Ideal si buscas luminosidad natural, elasticidad y atenuar líneas de expresión.</p>
+                    <p class="text-xs font-bold text-brand-700">Aceites recomendados:</p>
+                    <ul class="text-xs text-stone-600 mt-2 space-y-1">
+                        <li>• Aceite de Almendras</li>
+                        <li>• Aceite de Chía</li>
+                        <li>• Aceite de Linaza</li>
+                        <li>• Aceite Semilla de Girasol</li>
+                    </ul>
+                </div>
+
+                <!-- Tarjeta 3 -->
+                <div class="bg-white p-8 rounded-3xl border border-stone-200 shadow-sm">
+                    <div class="w-10 h-
