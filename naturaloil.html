@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Natural Oil - Cuidado Puro y Natural para tu Piel y Cabello</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f4f7f4',
+                            100: '#e3ebe3',
+                            200: '#c7d8c7',
+                            600: '#3e6248',
+                            700: '#324f3b',
+                            800: '#2a4132',
+                            900: '#23362a',
+                        },
+                        amberbrand: {
+                            500: '#d97706',
+                            600: '#b45309',
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-[#faf8f5] text-slate-800 font-sans antialiased selection:bg-brand-200 selection:text-brand-900 flex flex-col min-h-screen">
+
+    <!-- Barra de Anuncio Superior -->
+    <div class="bg-brand-900 text-amber-100 text-xs py-2 px-4 text-center font-medium tracking-wide">
+        🌿 Envíos GRATIS en todo República Dominicana en compras mayores a RD$ 2,500
+    </div>
+
+    <!-- Navegación -->
+    <header class="sticky top-0 z-50 bg-[#faf8f5]/90 backdrop-blur-md border-b border-stone-200/60 transition-all">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-full bg-brand-600 text-stone-50 flex items-center justify-center shadow-sm">
+                        <i class="fa-solid fa-leaf text-lg"></i>
+                    </div>
+                    <div>
+                        <span class="font-serif text-2xl font-bold tracking-tight text-brand-900 block leading-none">Natural Oil</span>
+                        <span class="text-[10px] text-brand-600 font-semibold uppercase tracking-widest block mt-0.5">Puro & Natural</span>
+                    </div>
+                </a>
+
+                <!-- Menú Escritorio -->
+                <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium text-stone-700">
+                    <a href="#valores" class="hover:text-brand-600 transition-colors">Valores</a>
+                    <a href="#productos" class="hover:text-brand-600 transition-colors">Nuestros Aceites</a>
+                    <a href="#soluciones" class="hover:text-brand-600 transition-colors">¿Qué Problema Resuelves?</a>
+                    <a href="#instrucciones" class="hover:text-brand-600 transition-colors">Modo de Uso</a>
+                    <a href="#combos" class="text-amberbrand-600 font-semibold hover:text-amberbrand-500 transition-colors">Kits & Combos</a>
+                    <a href="#envios" class="hover:text-brand-600 transition-colors">Envíos & Pagos</a>
+                    <!-- Enlace para volver a Alumister -->
+                    <a href="index.html" class="bg-slate-800 hover:bg-slate-900 text-white font-bold px-4 py-2 rounded-full text-xs transition-all">
+                        🏗️ Ir a Alumister
+                    </a>
+                </nav>
+
+                <!-- Botón de Contacto / Cotización -->
+                <div class="hidden sm:flex items-center gap-3">
+                    <a href="https://wa.me/18090000000?text=Hola%20Natural%20Oil,%20quisiera%20información%20de%20sus%20aceites" target="_blank" class="bg-brand-600 hover:bg-brand-700 text-white text-xs uppercase tracking-wider font-bold px-5 py-3 rounded-full shadow-sm hover:shadow-md transition-all flex items-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-sm"></i> Pedir por WhatsApp
+                    </a>
+                </div>
+
+                <!-- Botón Menú Móvil -->
+                <button onclick="toggleMobileMenu()" class="lg:hidden text-stone-800 text-2xl p-2 focus:outline-none">
+                    <i class="fa-solid fa-bars" id="mobileMenuIcon"></i>
+                </button>
+            </div>
